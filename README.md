@@ -1,5 +1,5 @@
 # Project Outline
-=======
+
 ### Overview
 Name: D.Y.W.A.B.O.H.
 
@@ -19,3 +19,20 @@ Our project is a web app that will allow a realtor to create, update and adminis
 * Backend - Java, Spring Boot, MySQL, Hibernate
 * Frontend - Angular, Javascript/Typescript, Bootstrap(?)
 * Data - Public APIs (Google Maps, Realty API (Zillow, Realty Mole etc))
+
+## Wireframe Images
+<details><summary>Login - Desktop View</summary>
+ <img src="/PreviewImgs/ligind.PNG" alt="Login Desktop View"/>
+</details>
+<details><summary>Create Account - Desktop View</summary>
+ <img src="/PreviewImgs/newacctd.PNG" alt="New Account Desktop View"/>
+</details>
+<details><summary>Map and Listings - Desktop View</summary>
+ <img src="/PreviewImgs/mapd.PNG" alt="Map Desktop View"/>
+</details>
+<details><summary> Property Details - Desktop View</summary>
+ <img src="/PreviewImgs/detaild.PNG" alt="detail Desktop View"/>
+</details>
+<details><summary> Edit/Add - Desktop View</summary>
+ <img src="/PreviewImgs/addeditd.PNG" alt="Edit Desktop View"/>
+</details>
