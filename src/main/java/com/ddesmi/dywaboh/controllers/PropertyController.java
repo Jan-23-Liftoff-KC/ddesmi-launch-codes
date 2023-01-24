@@ -1,28 +1,29 @@
 package com.ddesmi.dywaboh.controllers;
 
-import com.ddesmi.dywaboh.data.PropertyRepository;
-import com.ddesmi.dywaboh.models.Property;
+
+import com.ddesmi.dywaboh.models.Properties;
+import com.ddesmi.dywaboh.models.data.PropertiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/property")
+@RequestMapping("/properties")
 public class PropertyController {
 
     @Autowired
-    PropertyRepository propertyRepository;
+    PropertiesRepository propertiesRepository;
 
     @GetMapping("/all")
-    public List<Property> allProperties(){
-        List<Property> foundProperties = (List<Property>) propertyRepository.findAll();
+    public List<Properties> allProperties(){
+        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
         return foundProperties;
     }
 
     @PostMapping("/add")
-    public Property addProperty(@RequestBody Property property){
-        Property newProperty = propertyRepository.save(property);
+    public Properties addProperty(@RequestBody Properties property){
+        Properties newProperty = propertiesRepository.save(property);
         return newProperty;
     }
 }
