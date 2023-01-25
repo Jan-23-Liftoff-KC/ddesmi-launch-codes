@@ -18,8 +18,6 @@ public class PriceHistory {
     @NotBlank
     private Date changeDate;
 
-    @ManyToOne(targetEntity = Properties.class)
-    private int propertyID;
 
     //GETTERS AND SETTERS
     public int getId() {
@@ -46,20 +44,9 @@ public class PriceHistory {
         this.changeDate = changeDate;
     }
 
-    public int getPropertyID() {
-        return propertyID;
-    }
-
-    public void setPropertyID(int propertyID) {
-        this.propertyID = propertyID;
-    }
 
     //CONSTRUCTORS
     public PriceHistory() {
-    }
-
-    public PriceHistory(int propertyID) {
-        this.propertyID = propertyID;
     }
 
 }

@@ -18,9 +18,6 @@ public class Images {
     @NotBlank
     private Date uploadDate;
 
-    @ManyToOne(targetEntity = Properties.class)
-    private int propertyID;
-
     //GETTERS AND SETTERS
     public int getId() {
         return id;
@@ -46,20 +43,8 @@ public class Images {
         this.uploadDate = uploadDate;
     }
 
-    public int getPropertyID() {
-        return propertyID;
-    }
-
-    public void setPropertyID(int propertyID) {
-        this.propertyID = propertyID;
-    }
-
     //CONSTRUCTORS
     public Images() {
-    }
-
-    public Images(int propertyID) {
-        this.propertyID = propertyID;
     }
 
 }
