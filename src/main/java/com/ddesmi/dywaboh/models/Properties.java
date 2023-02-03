@@ -39,13 +39,13 @@ public class Properties {
     @NotNull
     private Float bedrooms;
 
-    @NotBlank
+   
     private Boolean centralHeating;
 
-    @NotBlank
+    
     private Boolean centralCooling;
 
-    @NotBlank
+    @NotNull
     private Boolean garage;
 
     @NotNull
@@ -57,6 +57,7 @@ public class Properties {
     @NotBlank
     private String status;
 
+    @NotBlank
     private String schoolArea;
 
     // @OneToMany(mappedBy="propertyID")
@@ -65,9 +66,9 @@ public class Properties {
     // @OneToMany(mappedBy="propertyID")
     // private List<PriceHistory> prices = new ArrayList<>();
 
-    @ManyToOne(targetEntity = Realtors.class)
+    // @ManyToOne(targetEntity = Realtors.class)
     //@JoinColumn(name="id")
-    private int realtorID;
+    // private int realtorID;
 
     //GETTERS AND SETTERS
 
@@ -207,13 +208,13 @@ public class Properties {
     //     this.prices = prices;
     // }
 
-    public int getRealtorID() {
-        return realtorID;
-    }
+    // public int getRealtorID() {
+    //     return realtorID;
+    // }
 
-    public void setRealtorID(int realtorID) {
-        this.realtorID = realtorID;
-    }
+    // public void setRealtorID(int realtorID) {
+    //     this.realtorID = realtorID;
+    // }
 
     //CONSTRUCTORS
     public Properties() {
