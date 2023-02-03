@@ -38,8 +38,8 @@ public class Realtors {
 
     private String profileImagePath;
 
-    //mapped  by field name in properties. properties will be many to one with join column defining field
-    @OneToMany(mappedBy = "realtors")
+    @OneToMany
+    @JoinColumn(name="realtor_id")
     private List<Properties> properties = new ArrayList<>();
 
     //GETTERS AND SETTERS
