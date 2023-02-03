@@ -2,7 +2,9 @@ package com.ddesmi.dywaboh.models;
 
 import javax.persistence.*;
 import java.util.List;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -25,48 +27,49 @@ public class Properties {
     @NotBlank
     private String state;
 
-    @NotBlank
+    @NotNull
     private int zip;
 
-    @NotBlank
+    @NotNull
     private Float price;
 
-    @NotBlank
+    @NotNull
     private Float bathrooms;
 
-    @NotBlank
+    @NotNull
     private Float bedrooms;
 
-    @NotBlank
+    @NotNull
     private Boolean centralHeating;
 
-    @NotBlank
+    @NotNull
     private Boolean centralCooling;
 
-    @NotBlank
+    @NotNull
     private Boolean garage;
 
-    @NotBlank
+    @NotNull
     private int squareFootage;
 
-//    @NotBlank
-//    private Date listingDate;
+    @NotNull
+    private Date listingDate;
 
     @NotBlank
     private String status;
 
+    @NotBlank
     private String schoolArea;
 
-    @OneToMany
-    @JoinColumn(name="properties_id")
+    @OneToMany(mappedBy = "properties")
     private List<Images> images = new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name="properties_id")
+    @OneToMany(mappedBy = "properties")
     private List<PriceHistory> prices = new ArrayList<>();
 
+    @ManyToOne
+    private Realtors realtors;
 
-    //GETTERS AND SETTERS
+//GETTERS AND SETTERS
 
     public int getId() {
         return id;
@@ -164,13 +167,13 @@ public class Properties {
         this.squareFootage = squareFootage;
     }
 
-//    public Date getListingDate() {
-//        return listingDate;
-//    }
-//
-//    public void setListingDate(Date listingDate) {
-//        this.listingDate = listingDate;
-//    }
+    public Date getListingDate() {
+        return listingDate;
+    }
+
+    public void setListingDate(Date listingDate) {
+        this.listingDate = listingDate;
+    }
 
     public String getStatus() {
         return status;
@@ -187,30 +190,32 @@ public class Properties {
     public void setSchoolArea(String schoolArea) {
         this.schoolArea = schoolArea;
     }
-//
-//    public List<Images> getImages() {
-//        return images;
-//    }
-//
-//    public void setImages(List<Images> images) {
-//        this.images = images;
-//    }
-//
-//    public List<PriceHistory> getPrices() {
-//        return prices;
-//    }
-//
-//    public void setPrices(List<PriceHistory> prices) {
-//        this.prices = prices;
-//    }
 
-//    public int getRealtorID() {
-//        return realtorID;
-//    }
-//
-//    public void setRealtorID(int realtorID) {
-//        this.realtorID = realtorID;
-//    }
+    public List<Images> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Images> images) {
+        this.images = images;
+    }
+
+    public List<PriceHistory> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<PriceHistory> prices) {
+        this.prices = prices;
+    }
+
+    public Realtors getRealtors() {
+        return realtors;
+    }
+
+    public void setRealtors(Realtors realtors) {
+        this.realtors = realtors;
+    }
+
+
 
     //CONSTRUCTORS
     public Properties() {
