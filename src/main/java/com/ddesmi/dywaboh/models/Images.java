@@ -48,13 +48,13 @@ public class Images {
         this.uploadDate = uploadDate;
     }
 
-    public Properties getProperties() {
-        return properties;
-    }
-
-    public void setProperties(Properties properties) {
-        this.properties = properties;
-    }
+//    public Properties getProperties() {
+//        return properties;
+//    }
+//
+//    public void setProperties(Properties properties) {
+//        this.properties = properties;
+//    }
 
     //CONSTRUCTORS
     public Images() {
