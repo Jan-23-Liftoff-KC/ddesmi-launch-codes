@@ -1,5 +1,7 @@
 package com.ddesmi.dywaboh.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import javax.validation.constraints.Size;
@@ -39,7 +41,8 @@ public class Realtors {
     private String profileImagePath;
 
     //mapped  by field name in properties. properties will be many to one with join column defining field
-    @OneToMany(mappedBy = "realtors")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "realtors", targetEntity = Properties.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Properties> properties = new ArrayList<>();
 
     //GETTERS AND SETTERS

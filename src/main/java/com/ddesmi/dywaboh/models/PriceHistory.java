@@ -1,5 +1,7 @@
 package com.ddesmi.dywaboh.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -19,8 +21,9 @@ public class PriceHistory {
     @NotBlank
     private Date changeDate;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="properties_id")
+    @JoinColumn(name = "properties_id")
     private Properties properties;
 
 
@@ -49,6 +52,13 @@ public class PriceHistory {
         this.changeDate = changeDate;
     }
 
+    public Properties getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Properties properties) {
+        this.properties = properties;
+    }
 
     //CONSTRUCTORS
     public PriceHistory() {

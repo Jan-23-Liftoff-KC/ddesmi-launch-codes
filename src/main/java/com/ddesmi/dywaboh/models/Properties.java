@@ -1,5 +1,8 @@
 package com.ddesmi.dywaboh.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import javax.validation.Valid;
@@ -60,13 +63,17 @@ public class Properties {
     @NotBlank
     private String schoolArea;
 
-    @OneToMany(mappedBy = "properties")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "properties", targetEntity = Images.class, cascade = CascadeType.ALL)
     private List<Images> images = new ArrayList<>();
 
-    @OneToMany(mappedBy = "properties")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "properties", targetEntity = PriceHistory.class, cascade = CascadeType.ALL)
     private List<PriceHistory> prices = new ArrayList<>();
 
+    @JsonBackReference
     @ManyToOne
+    @JoinColumn(name = "realtors_id")
     private Realtors realtors;
 
 //GETTERS AND SETTERS

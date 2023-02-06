@@ -20,11 +20,11 @@ public class PropertyController {
     @Autowired
     private RealtorsRepository realtorsRepository;
 
-    @GetMapping("/all")
-    public List<Properties> allProperties(){
-        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
-        return foundProperties;
-    }
+//    @GetMapping("/all")
+//    public List<Properties> allProperties(){
+//        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
+//        return foundProperties;
+//    }
 
     @PostMapping("/add")
     public Properties addProperty(@RequestBody Properties property){
@@ -33,21 +33,21 @@ public class PropertyController {
     }
 
 // Added a realtor controller for testing
-//    @PostMapping("/addr")
-//    public Realtors addRealtors(@RequestBody Realtors realtors){
-//        Realtors newRealtors = realtorsRepository.save(realtors);
-//        return newRealtors;
-//    }
+    @PostMapping("/addr")
+    public Realtors addRealtors(@RequestBody Realtors realtors){
+        Realtors newRealtors = realtorsRepository.save(realtors);
+        return newRealtors;
+    }
 //
 // returning multiple objects from repositories as an array of objects
-//    @GetMapping("/all")
-//    public List<Object> allProperties(){
-//        List<Object> objList = new ArrayList<>();
-//        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
-//        List<Realtors> foundRealtors = (List<Realtors>) realtorsRepository.findAll();
-//        objList.add(foundProperties);
-//        objList.add(foundRealtors);
-//        return objList;
-//    }
+    @GetMapping("/all")
+    public List<Object> allProperties(){
+        List<Object> objList = new ArrayList<>();
+        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
+        List<Realtors> foundRealtors = (List<Realtors>) realtorsRepository.findAll();
+        objList.add(foundProperties);
+        objList.add(foundRealtors);
+        return objList;
+    }
 }
 

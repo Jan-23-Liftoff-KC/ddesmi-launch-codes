@@ -1,5 +1,7 @@
 package com.ddesmi.dywaboh.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -19,8 +21,9 @@ public class Images {
     @NotBlank
     private Date uploadDate;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="properties_id")
+    @JoinColumn(name = "properties_id")
     private Properties properties;
 
     //GETTERS AND SETTERS
