@@ -207,13 +207,13 @@ public class Properties {
         this.prices = prices;
     }
 
-    public Realtors getRealtors() {
-        return realtors;
-    }
-
-    public void setRealtors(Realtors realtors) {
-        this.realtors = realtors;
-    }
+//    public Realtors getRealtors() {
+//        return realtors;
+//    }
+//
+//    public void setRealtors(Realtors realtors) {
+//        this.realtors = realtors;
+//    }
 
 
 

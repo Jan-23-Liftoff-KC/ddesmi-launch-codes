@@ -49,6 +49,14 @@ public class PriceHistory {
         this.changeDate = changeDate;
     }
 
+//    public Properties getProperties() {
+//        return properties;
+//    }
+//
+//    public void setProperties(Properties properties) {
+//        this.properties = properties;
+//    }
+
 
     //CONSTRUCTORS
     public PriceHistory() {
