@@ -39,10 +39,10 @@ public class Properties {
     @NotNull
     private Float bedrooms;
 
-   
+    @NotNull
     private Boolean centralHeating;
 
-    
+    @NotNull
     private Boolean centralCooling;
 
     @NotNull
@@ -218,6 +218,15 @@ public class Properties {
 
     //CONSTRUCTORS
     public Properties() {
+        if (this.centralCooling == null){
+            this.centralCooling = false;
+        }
+        if(this.centralHeating == null){
+            this.centralHeating = false;
+        }
+        if(this.garage == null){
+            this.garage = false;
+        }
     }
 
     // public Properties(ArrayList<Images> images, ArrayList<PriceHistory> prices, int realtorID) {
