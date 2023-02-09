@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { AbstractControl, ControlValueAccessor, FormControl, NgForm } from '@angular/forms';
 import { ListingService } from '../listing/listing.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Listing } from '../listing/listing';
@@ -10,6 +10,11 @@ import { Listing } from '../listing/listing';
   styleUrls: ['./listing-form.component.css']
 })
 export class ListingFormComponent implements OnInit {
+
+  centralHeating: boolean = false;
+  centralCooling: boolean = false;
+  garage: boolean = false;
+
 
   public listing: Listing | undefined;
   constructor(private listingService: ListingService) { }
@@ -28,4 +33,5 @@ export class ListingFormComponent implements OnInit {
       }
     )
   };
+
 }

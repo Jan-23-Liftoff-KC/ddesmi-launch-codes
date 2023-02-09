@@ -10,16 +10,59 @@
     </fieldset>
     <fieldset>
         <legend>Home Features: </legend>
-        <input type="text" ngModel id="square_footage" name="squareFootage" placeholder="Square Footage">
-        <input type="number" ngModel id="bathrooms" name="bathrooms" placeholder="Number of Bathrooms">
-        <input type="number" ngModel id="bedrooms" name="bedrooms"placeholder="Number of Bedrooms">
-        <input type="checkbox" ngModel id="central_cooling" name="centralCooling" value="TRUE">
+
+        <input 
+        type="text" 
+        ngModel 
+        id="square_footage" 
+        name="squareFootage" 
+        placeholder="Square Footage">
+
+        <input 
+        type="number" 
+        ngModel 
+        id="bathrooms" 
+        name="bathrooms" 
+        placeholder="Number of Bathrooms">
+
+        <input 
+        type="number" 
+        ngModel 
+        id="bedrooms" 
+        name="bedrooms"
+        placeholder="Number of Bedrooms">
+
+        <input 
+        type="checkbox" 
+        [(ngModel)]="centralCooling" 
+        id="central_cooling" 
+        name="centralCooling" 
+        value="TRUE">
         <label for="central_cooling">Central AC </label>
-        <input type="checkbox" ngModel id="central_heating" name="centralHeating" value="TRUE">
+
+        <input 
+        type="checkbox" 
+        [(ngModel)]="centralHeating" 
+        id="central_heating" 
+        name="centralHeating" 
+        value="TRUE">
         <label for="central_heating">Central heating </label>
-        <input type="checkbox" ngModel id="garage" name="garage" value="TRUE">
+
+        <input 
+        type="checkbox" 
+        [(ngModel)]="garage" 
+        id="garage" 
+        name="garage" 
+        value="TRUE">
         <label for="garage">Garage </label>
-        <input type="text" ngModel id="school_area" name="schoolArea" placeholder="School Area">
+
+        <input 
+        type="text" 
+        ngModel 
+        id="school_area" 
+        name="schoolArea" 
+        placeholder="School Area">
+
     </fieldset>
     <label for="status">Status: </label>
     <select name="status" ngModel id="status" name="status">
@@ -31,6 +74,6 @@
     <label for="price">Price: </label>
     <input type="text" id="price" ngModel name="price">
     <!-- <label for="realtor_id">Realtor ID: </label>
-    <input type="text" id="realtor_id" ngModel name="realtor_id"> -->
+    <input type="text" id="realtor_id" ngModel name="realtorID"> -->
     <input type="submit" value="Submit">
 </form>
