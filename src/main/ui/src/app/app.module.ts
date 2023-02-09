@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

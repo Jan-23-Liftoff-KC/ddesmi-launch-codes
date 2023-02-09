@@ -2,9 +2,9 @@ package com.ddesmi.dywaboh.models;
 
 import javax.persistence.*;
 import java.util.List;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -51,8 +51,8 @@ public class Properties {
     @NotNull
     private int squareFootage;
 
-//    @NotBlank
-//    private Date listingDate;
+    @NotNull
+    private Date listingDate;
 
     @NotBlank
     private String status;
@@ -60,17 +60,16 @@ public class Properties {
     @NotBlank
     private String schoolArea;
 
-    // @OneToMany(mappedBy="propertyID")
-    // private List<Images> images = new ArrayList<>();
+    @OneToMany(mappedBy = "properties")
+    private List<Images> images = new ArrayList<>();
 
-    // @OneToMany(mappedBy="propertyID")
-    // private List<PriceHistory> prices = new ArrayList<>();
+    @OneToMany(mappedBy = "properties")
+    private List<PriceHistory> prices = new ArrayList<>();
 
-    // @ManyToOne(targetEntity = Realtors.class)
-    //@JoinColumn(name="id")
-    // private int realtorID;
+    @ManyToOne
+    private Realtors realtors;
 
-    //GETTERS AND SETTERS
+//GETTERS AND SETTERS
 
     public int getId() {
         return id;
@@ -168,13 +167,13 @@ public class Properties {
         this.squareFootage = squareFootage;
     }
 
-    // public Date getListingDate() {
-    //     return listingDate;
-    // }
+    public Date getListingDate() {
+        return listingDate;
+    }
 
-    // public void setListingDate(Date listingDate) {
-    //     this.listingDate = listingDate;
-    // }
+    public void setListingDate(Date listingDate) {
+        this.listingDate = listingDate;
+    }
 
     public String getStatus() {
         return status;
@@ -192,47 +191,38 @@ public class Properties {
         this.schoolArea = schoolArea;
     }
 
-    // public List<Images> getImages() {
-    //     return images;
-    // }
+    public List<Images> getImages() {
+        return images;
+    }
 
-    // public void setImages(List<Images> images) {
-    //     this.images = images;
-    // }
+    public void setImages(List<Images> images) {
+        this.images = images;
+    }
 
-    // public List<PriceHistory> getPrices() {
-    //     return prices;
-    // }
+    public List<PriceHistory> getPrices() {
+        return prices;
+    }
 
-    // public void setPrices(List<PriceHistory> prices) {
-    //     this.prices = prices;
-    // }
+    public void setPrices(List<PriceHistory> prices) {
+        this.prices = prices;
+    }
 
-    // public int getRealtorID() {
-    //     return realtorID;
-    // }
+//    public Realtors getRealtors() {
+//        return realtors;
+//    }
+//
+//    public void setRealtors(Realtors realtors) {
+//        this.realtors = realtors;
+//    }
 
-    // public void setRealtorID(int realtorID) {
-    //     this.realtorID = realtorID;
-    // }
+
 
     //CONSTRUCTORS
     public Properties() {
-        if (this.centralCooling == null){
-            this.centralCooling = false;
-        }
-        if(this.centralHeating == null){
-            this.centralHeating = false;
-        }
-        if(this.garage == null){
-            this.garage = false;
-        }
     }
 
-    // public Properties(ArrayList<Images> images, ArrayList<PriceHistory> prices, int realtorID) {
-    //     this.images = images;
-    //     this.prices = prices;
-    //     this.realtorID = realtorID;
-    // }
-
+    public Properties(ArrayList<Images> images, ArrayList<PriceHistory> prices) {
+        this.images = images;
+        this.prices = prices;
+    }
 }

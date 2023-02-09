@@ -1,6 +1,7 @@
 package com.ddesmi.dywaboh.models;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -18,6 +19,9 @@ public class PriceHistory {
     @NotBlank
     private Date changeDate;
 
+    @ManyToOne
+    @JoinColumn(name="properties_id")
+    private Properties properties;
 
     //GETTERS AND SETTERS
     public int getId() {
@@ -44,9 +48,15 @@ public class PriceHistory {
         this.changeDate = changeDate;
     }
 
+//    public Properties getProperties() {
+//        return properties;
+//    }
+//
+//    public void setProperties(Properties properties) {
+//        this.properties = properties;
+//    }
 
     //CONSTRUCTORS
     public PriceHistory() {
     }
-
 }
