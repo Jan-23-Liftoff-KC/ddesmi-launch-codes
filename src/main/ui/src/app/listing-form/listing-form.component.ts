@@ -14,6 +14,7 @@ export class ListingFormComponent implements OnInit {
   centralHeating: boolean = false;
   centralCooling: boolean = false;
   garage: boolean = false;
+  listingDate = new Date();
 
 
   public listing: Listing | undefined;
