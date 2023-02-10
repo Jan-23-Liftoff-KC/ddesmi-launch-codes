@@ -17,6 +17,7 @@ public class PropertyController {
 
     @Autowired
     PropertiesRepository propertiesRepository;
+
     @Autowired
     private RealtorsRepository realtorsRepository;
 
@@ -50,4 +51,3 @@ public class PropertyController {
 //        return objList;
 //    }
 }
-

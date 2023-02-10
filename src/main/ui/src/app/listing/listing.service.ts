@@ -15,4 +15,8 @@ export class ListingService {
   public getListings(): Observable<Listing[]> {
     return this.http.get<Listing[]>(`${this.javaServerUrl}/properties/all`);
   }
+
+  public addListing(listing:Listing): Observable<Listing> {
+    return this.http.post<Listing>(`${this.javaServerUrl}/properties/add`, listing);
+  }
 }

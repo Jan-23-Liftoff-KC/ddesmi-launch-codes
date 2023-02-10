@@ -23,7 +23,7 @@ export class ListingDetailsComponent implements OnInit {
         this.listings = response;
       },
       (error: HttpErrorResponse) => {
-        alert("OMG BADD THINGS HAPPENING< SEND HELP>");
+        alert("Could not fetch listings");
       }
     )
   }
