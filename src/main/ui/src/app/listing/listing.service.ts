@@ -17,8 +17,8 @@ export class ListingService {
   }
 
   
-  public getListingById(): Observable<Listing[]> {
-    return this.http.get<Listing[]>(`${this.javaServerUrl}/properties/`);
+  public getListingById(id: number): Observable<Listing[]> {
+    return this.http.get<Listing[]>(`${this.javaServerUrl}/properties/${id}`);
   }
 
   public addListing(listing:Listing): Observable<Listing> {
