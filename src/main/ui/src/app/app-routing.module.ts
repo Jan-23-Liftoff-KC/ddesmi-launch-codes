@@ -6,7 +6,8 @@ import { ListingEditComponent } from "./listing-edit/listing-edit.component";
 import { Listing } from "./listing/listing";
 
 const routes: Routes = [
-    {path: "properties/{id}", component: ListingEditComponent}
+    {path: "properties/all", component: ListingDetailsComponent},
+    {path: "properties/:id", component: ListingEditComponent}
 ];
 
 @NgModule({
@@ -14,5 +15,6 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule {};
+export const routingComponents = [ListingEditComponent, ListingDetailsComponent]
 

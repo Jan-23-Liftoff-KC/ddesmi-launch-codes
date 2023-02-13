@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Listing } from '../listing/listing';
 import { ListingService } from '../listing/listing.service';
@@ -21,6 +22,9 @@ export class ListingEditComponent implements OnInit {
     this.listingService.getListingById().subscribe(
       (response: Listing[]) => {
         this.property = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert("Could not fetch listing");
       }
     )
   }

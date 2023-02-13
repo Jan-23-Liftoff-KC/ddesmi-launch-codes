@@ -7,18 +7,17 @@ import { AppComponent } from './app.component';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { ListingEditComponent } from './listing-edit/listing-edit.component';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListingDetailsComponent,
+    routingComponents,
     ListingFormComponent,
-    ListingEditComponent
   ],
   imports: [
-    RouterModule, BrowserModule, HttpClientModule, FormsModule
+    AppRoutingModule, BrowserModule, HttpClientModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
