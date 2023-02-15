@@ -16,12 +16,15 @@ export class ListingService {
     return this.http.get<Listing[]>(`${this.javaServerUrl}/properties/all`);
   }
 
-  
-  public getListingById(id: number): Observable<Listing[]> {
-    return this.http.get<Listing[]>(`${this.javaServerUrl}/properties/${id}`);
-  }
-
   public addListing(listing:Listing): Observable<Listing> {
     return this.http.post<Listing>(`${this.javaServerUrl}/properties/add`, listing);
+  }
+
+  public updateListing(listing: Listing): Observable<Listing> {
+    return this.http.post<Listing>(`${this.javaServerUrl}/properties/update`, listing);
+  }
+
+  public deleteListing(listingId: number): Observable<void> {
+    return this.http.delete<void>(`${this.javaServerUrl}/properties/delete/${listingId}`);
   }
 }
