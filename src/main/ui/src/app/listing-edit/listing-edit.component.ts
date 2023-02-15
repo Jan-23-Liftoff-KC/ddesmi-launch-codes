@@ -20,16 +20,16 @@ export class ListingEditComponent implements OnInit {
   
   }
 
-  public getListingById(): void {
-    //added a 1 as an argument to test
-    this.listingService.updateListing.subscribe(
-      (response: Listing[]) => {
-        this.property = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert("Could not fetch listing");
-      }
-    )
-  }
+  // public getListingById(): void {
+  //   //added a 1 as an argument to test
+  //   this.listingService.updateListing.subscribe(
+  //     (response: Listing[]) => {
+  //       this.property = response;
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert("Could not fetch listing");
+  //     }
+  //   )
+  // }
 
 }
