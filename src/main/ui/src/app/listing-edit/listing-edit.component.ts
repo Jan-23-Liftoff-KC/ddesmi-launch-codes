@@ -17,13 +17,12 @@ export class ListingEditComponent implements OnInit {
   constructor(private listingService: ListingService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //not sure how to implement this to work but google said I needed it
-    const id = this.route.snapshot.paramMap.get('id');
+  
   }
 
   public getListingById(): void {
     //added a 1 as an argument to test
-    this.listingService.getListingById(1).subscribe(
+    this.listingService.updateListing.subscribe(
       (response: Listing[]) => {
         this.property = response;
       },
