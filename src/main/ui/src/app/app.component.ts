@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { Listing } from './listing/listing';
-import { ListingService } from './listing/listing.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +7,7 @@ import { ListingService } from './listing/listing.service';
   styleUrls: ['./app.component.css']
 })
 
+
 export class AppComponent {
   title = 'ui';
-  public listings: Listing[] | undefined;
-  
-  constructor(private listingService: ListingService) { }
 }

@@ -14,5 +14,4 @@ export interface Listing {
     listingDate: Date;
     status: string;
     schoolArea: string;
-
 }
