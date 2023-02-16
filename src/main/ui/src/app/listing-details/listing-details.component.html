@@ -60,15 +60,15 @@
                  </div>
                  <div class="form-group">
                     <label for="centralCooling">Central Cooling</label>
-                    <input type="checkbox" [(ngModel)]="centralCooling" id="central_cooling" name="centralCooling" value="TRUE" required>
+                    <input type="checkbox" [(ngModel)]="centralCooling" id="central_cooling" name="centralCooling" value="TRUE">
                  </div>
                  <div class="form-group">
                     <label for="centralHeating">Central heating</label>
-                    <input type="checkbox" [(ngModel)]="centralHeating" id="central_Heating" name="centralHeating" value="TRUE" required>
+                    <input type="checkbox" [(ngModel)]="centralHeating" id="central_Heating" name="centralHeating" value="TRUE">
                  </div>
                  <div class="form-group">
                     <label for="garage">Garage</label>
-                    <input type="checkbox" [(ngModel)]="garage" id="garage" name="garage" value="TRUE" required>
+                    <input type="checkbox" [(ngModel)]="garage" id="garage" name="garage" value="TRUE">
                  </div>
                  <div class="form-group">
                     <label for="schoolArea">School Area</label>
@@ -143,15 +143,15 @@
                  </div>
                  <div class="form-group">
                     <label for="centralCooling">Central Cooling</label>
-                    <input type="checkbox" ngModel="{{editListing?.centralCooling}}" id="central_cooling" name="centralCooling" value="TRUE" required>
+                    <input type="checkbox" ngModel="{{editListing?.centralCooling}}" id="central_cooling" name="centralCooling" value="TRUE">
                  </div>
                  <div class="form-group">
                     <label for="centralHeating">Central heating</label>
-                    <input type="checkbox" ngModel="{{editListing?.centralHeating}}" id="central_Heating" name="centralHeating" value="TRUE" required>
+                    <input type="checkbox" ngModel="{{editListing?.centralHeating}}" id="central_Heating" name="centralHeating" value="TRUE">
                  </div>
                  <div class="form-group">
                     <label for="garage">Garage</label>
-                    <input type="checkbox" ngModel="{{editListing?.garage}}" id="garage" name="garage" value="TRUE" required>
+                    <input type="checkbox" ngModel="{{editListing?.garage}}" id="garage" name="garage" value="TRUE">
                  </div>
                  <div class="form-group">
                     <label for="schoolArea">School Area</label>
@@ -176,7 +176,7 @@
                  </div> 
                 <div class="modal-footer">
                    <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                   <button click="onEditListing(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <button (click)="onEditListing(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                 </div>
                 </form>
             </div>

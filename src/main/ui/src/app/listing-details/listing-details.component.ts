@@ -50,8 +50,8 @@ export class ListingDetailsComponent implements OnInit {
     )
   };
 
-  public onEditListing(listing: Listing, id: number): void {
-    this.listingService.editListing(listing, listing.id).subscribe(
+  public onEditListing(listing: Listing): void {
+    this.listingService.editListing(listing).subscribe(
       (response: Listing) => {
         console.log(response);
         // this.getListings();
