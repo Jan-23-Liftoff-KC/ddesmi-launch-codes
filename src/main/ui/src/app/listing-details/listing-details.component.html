@@ -1,9 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container">
+<div class="row">
+    <div class=".coloumn" style="background-color:#ddd">
 <div *ngFor="let listing of listings">
     <ul>
-        <li>{{listing.price}}</li>
-        <li>{{listing.id}}</li>
-        <li>{{listing.address}}</li>
-        <li>{{listing.city}}, {{listing.state}} {{listing.zip}}</li>
-        <li>{{listing.bedrooms}} bedrooms</li>
+        <li>House Price : {{listing.price}}</li>
+        <li>Listing Id : {{listing.id}}</li>
+        <li>House address : {{listing.address}}</li>
+        <li>State : {{listing.city}}, {{listing.state}} {{listing.zip}}</li>
+        <li>Bedrooms : {{listing.bedrooms}} bedrooms</li>
+        
     </ul>
+</div>
+</div>
+</div>
 </div>
