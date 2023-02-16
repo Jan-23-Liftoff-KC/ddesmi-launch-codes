@@ -7,7 +7,7 @@
         <li>{{listing.bedrooms}} bedrooms</li>
     </ul>
     <div>
-        <button type="button" data-toggle="modal" >Edit</button>
+        <button type="button" (click)="onOpenModal(listing, 'edit')">Edit</button>
     </div>
 </div>
 
@@ -15,9 +15,10 @@
 <div id="main-container">
 
     <div>
-        <a (click)="onOpenModal('add')">Add Listing</a>
+        <button (click)="onOpenModal(undefined, 'add')">Add Listing</button>
     </div>
-    
+
+    <!-- Add Listing Modal  -->
     <div class="modal fade" id="addListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -99,72 +100,88 @@
         </div>
       </div>
       </div>
+
+    <!-- Edit Listing Modal -->
+    <div class="modal fade" id="editListingModal" tabindex="-1" role="dialog" aria-labelledby="addListingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modale-title" id="editListingModalLabel">Edit Listing</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+             </div>
+             <div class="modal-body">
+                <form #editForm="ngForm">
+                <div class="form-group">
+                   <label for="name">Address</label>
+                   <input type="text" ngModel="{{editListing?.address}}" name="address" class="form-control" id="address" placeholder=" Address" required>
+                </div>
+                <div class="form-group">
+                   <label for="city">City</label>
+                   <input type="text" ngModel="{{editListing?.city}}" name="city" class="form-control" id="city" placeholder="City" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" ngModel="{{editListing?.state}}" name="state" class="form-control" id="state" placeholder="State" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="zip">Zip</label>
+                    <input type="text" ngModel="{{editListing?.zip}}" name="zip" class="form-control" id="zip" placeholder="Zip" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="squareFootage">SqFt</label>
+                    <input type="text" ngModel="{{editListing?.squareFootage}}" name="squareFootage" class="form-control" id="squareFootage" placeholder="SqFt" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="bathrooms">Bathrooms</label>
+                    <input type="text" ngModel="{{editListing?.bathrooms}}" name="bathrooms" class="form-control" id="bathrooms" placeholder="Bathrooms" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="bedrooms">Bedrooms</label>
+                    <input type="text" ngModel="{{editListing?.bedrooms}}" name="bedrooms" class="form-control" id="bedrooms" placeholder="Bedrooms" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="centralCooling">Central Cooling</label>
+                    <input type="checkbox" ngModel="{{editListing?.centralCooling}}" id="central_cooling" name="centralCooling" value="TRUE" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="centralHeating">Central heating</label>
+                    <input type="checkbox" ngModel="{{editListing?.centralHeating}}" id="central_Heating" name="centralHeating" value="TRUE" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="garage">Garage</label>
+                    <input type="checkbox" ngModel="{{editListing?.garage}}" id="garage" name="garage" value="TRUE" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="schoolArea">School Area</label>
+                    <input type="text" ngModel="{{editListing?.schoolArea}}" name="schoolArea" class="form-control" id="school_area" name="schoolArea" placeholder="School Area" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="listingDate">Date</label>
+                    <input type="date" ngModel="{{editListing?.listingDate}}"  class="form-control" id="listingDate" name="listingDate" value="listingDate" required>
+                 </div>
+                 <div>
+                    <label for="status">Status: </label>
+                    <select ngModel="{{editListing?.status}}" name="status" ngModel id="status" name="status">
+                        <option>For Sale</option>
+                        <option>Pending</option>
+                        <option>Under Contract</option>
+                        <option>Sold</option>
+                    </select>
+                 </div>
+                 <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="text" ngModel="{{editListing?.price}}" name="price" class="form-control" id="price" placeholder="Price" required>
+                 </div> 
+                <div class="modal-footer">
+                   <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   <button click="onEditListing(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+      </div>
+      </div>
       
-    <!-- 
-    <input type="text" ngModel id="address" name="address" placeholder="Street Address">
-        <input type="text" ngModel id="city" name="city" placeholder="City">
-        <input type="text" ngModel id="state" name="state" placeholder="State">
-        <input type="text" ngModel id="zip" name="zip" placeholder="Zip Code">
-        </fieldset>
-        <fieldset>
-            <legend>Home Features: </legend>
-    
-            <input 
-            type="text" 
-            ngModel 
-            id="square_footage" 
-            name="squareFootage" 
-            placeholder="Square Footage">
-    
-            <input 
-            type="number" 
-            ngModel 
-            id="bathrooms" 
-            name="bathrooms" 
-            placeholder="Number of Bathrooms">
-    
-            <input 
-            type="number" 
-            ngModel 
-            id="bedrooms" 
-            name="bedrooms"
-            placeholder="Number of Bedrooms">
-    
-            <input 
-            type="checkbox" 
-            [(ngModel)]="centralCooling" 
-            id="central_cooling" 
-            name="centralCooling" 
-            value="TRUE">
-            <label for="central_cooling">Central AC </label>
-    
-            <input 
-            type="checkbox" 
-            [(ngModel)]="centralHeating" 
-            id="central_heating" 
-            name="centralHeating" 
-            value="TRUE">
-            <label for="central_heating">Central heating </label>
-    
-            <input 
-            type="checkbox" 
-            [(ngModel)]="garage" 
-            id="garage" 
-            name="garage" 
-            value="TRUE">
-            <label for="garage">Garage </label>
-    
-            <input 
-            type="text" 
-            ngModel 
-            id="school_area" 
-            name="schoolArea" 
-            placeholder="School Area">
-    
-            <input 
-            type="date" 
-            [(ngModel)]="listingDate"
-            name="listingDate" 
-            id="listingDate"
-            [value]='listingDate'
-            onload="getDate()"> -->
+   

@@ -12,6 +12,9 @@ import { ListingService } from '../listing/listing.service';
 export class ListingDetailsComponent implements OnInit {
 
   public listings: Listing[] | undefined;
+  public editListing: Listing | undefined;
+
+
   centralHeating: boolean = false;
   centralCooling: boolean = false;
   garage: boolean = false;
@@ -35,6 +38,7 @@ export class ListingDetailsComponent implements OnInit {
   }
 
   public onAddListing(listingForm: NgForm): void {
+    document.getElementById('add-employee-form')?.click();
     this.listingService.addListing(listingForm.value).subscribe(
       (response: Listing) => {
         console.log(response);
@@ -45,8 +49,20 @@ export class ListingDetailsComponent implements OnInit {
       }
     )
   };
+
+  public onEditListing(listing: Listing, id: number): void {
+    this.listingService.editListing(listing, listing.id).subscribe(
+      (response: Listing) => {
+        console.log(response);
+        // this.getListings();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  };
   
-  public onOpenModal(mode: string): void {
+  public onOpenModal(listing: Listing | undefined, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -57,6 +73,7 @@ export class ListingDetailsComponent implements OnInit {
       button.setAttribute('data-target', '#addListingModal')
     }
     if (mode === 'edit'){
+      this.editListing = listing;
       button.setAttribute('data-target', '#editListingModal')
     }
     if (mode === 'delete'){
