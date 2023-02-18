@@ -37,31 +37,6 @@ export class ListingDetailsComponent implements OnInit {
     )
   }
 
-  public onAddListing(listingForm: NgForm): void {
-    document.getElementById('add-employee-form')?.click();
-    this.listingService.addListing(listingForm.value).subscribe(
-      (response: Listing) => {
-        console.log(response);
-        // this.getListings();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
-  };
-
-  public onEditListing(listing: Listing): void {
-    this.listingService.editListing(listing).subscribe(
-      (response: Listing) => {
-        console.log(response);
-        // this.getListings();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
-  };
-  
   public onOpenModal(listing: Listing | undefined, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -82,6 +57,33 @@ export class ListingDetailsComponent implements OnInit {
     container?.appendChild(button)
     button.click();
   }
+
+
+  public onAddListing(listingForm: NgForm): void {
+    document.getElementById('add-employee-form')?.click();
+    this.listingService.addListing(listingForm.value).subscribe(
+      (response: Listing) => {
+        console.log(response);
+        // this.getListings();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  };
+
+  public onEditListing(listing: Listing, id: any): void {
+    this.listingService.editListing(listing, id).subscribe(
+      (response: Listing) => {
+        console.log(response);
+        // this.getListings();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  };
+  
 
   
   

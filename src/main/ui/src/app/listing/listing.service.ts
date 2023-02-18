@@ -20,8 +20,8 @@ export class ListingService {
     return this.http.post<Listing>(`${this.javaServerUrl}/properties/add`, listing);
   }
 
-  public editListing(listing: Listing): Observable<Listing> {
-    return this.http.put<Listing>(`${this.javaServerUrl}/properties/update`, listing);
+  public editListing(listing: Listing, id: number): Observable<Listing> {
+    return this.http.put<Listing>(`${this.javaServerUrl}/properties/update/${id}`, listing);
   }
 
   public deleteListing(listingId: number): Observable<void> {
