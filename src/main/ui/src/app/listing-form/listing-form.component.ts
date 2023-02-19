@@ -14,7 +14,7 @@ export class ListingFormComponent implements OnInit {
   centralHeating: boolean = false;
   centralCooling: boolean = false;
   garage: boolean = false;
-  listingDate = new Date();
+  listingDate = new Date().setDate(2023);
 
 
   public listing: Listing | undefined;
@@ -34,5 +34,4 @@ export class ListingFormComponent implements OnInit {
       }
     )
   };
-
 }

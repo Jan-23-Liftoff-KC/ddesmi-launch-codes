@@ -2,86 +2,191 @@
 <form  #listingForm="ngForm" (ngSubmit)="onAddListing(listingForm)">
     <p>Add/Edit Property</p>
     <fieldset>
-    <legend>Address: </legend>
-    <input type="text" ngModel id="address" name="address" placeholder="Street Address">
-    <input type="text" ngModel id="city" name="city" placeholder="City">
-    <input type="text" ngModel id="state" name="state" placeholder="State">
-    <input type="text" ngModel id="zip" name="zip" placeholder="Zip Code">
+        <legend>Address </legend>
+        <input name="address" 
+            required 
+            ngModel 
+            #address="ngModel" 
+            id="address" 
+            type="text" 
+            class="form-control"
+            placeholder="Street Address"
+        >
+        <label for="address">Street Address</label>
+        <br>
+        <input name="city" 
+            required
+            ngModel 
+            #city="ngModel"
+            id="city"  
+            type="text" 
+            class="form-control"
+            placeholder="City"
+        >
+        <label for="city">City</label>
+        <br>
+        <input name="state" 
+            required
+            minlength="2"
+            maxLength="2"
+            ngModel 
+            #state="ngModel"
+            id="state" 
+            type="text" 
+            class="form-control"
+            placeholder="State Abbreviation"
+            >
+            <label for="state">State</label>
+            <br>
+            <input name="zip" 
+            required
+            minlength="5"
+            maxLength="5"
+            ngModel 
+            #zip="ngModel"
+            id="zip" 
+            type="text" 
+            class="form-control"
+            placeholder="Zip Code"
+            >
+            <label for="zip">Zip Code</label>
+            <div 
+            class="alert" 
+            *ngIf=" (address.touched && !address.valid) || 
+                    (city.touched && !city.valid) || 
+                    (state.touched && !state.valid) || 
+                    (zip.touched &&!zip.valid)"
+            >
+            <div>Please review address fields. </div>
+        </div>
+        </fieldset>
+        <fieldset>
+            <legend>Listing Facts </legend>
+            <input name="price"
+            required
+            ngModel 
+            #price="ngModel"
+            type="text" 
+            class="form-control"
+            id="price" 
+            >
+            <label for="price">Price</label>
+            <br>            
+            <input name="squareFootage" 
+            required
+            minlength="2"
+            ngModel 
+            #squareFootage="ngModel"
+            id="square_footage" 
+            type="text" 
+            class="form-control"
+            placeholder="Square Footage"
+            >
+            <label for="squareFootage">Square Footage</label>
+            <br>
+            <input name="bathrooms"
+            required
+            min="0" 
+            onInput="this.value = Math.abs(this.value)"
+            ngModel 
+            #bathrooms="ngModel"
+            id="bathrooms" 
+            type="number" 
+            class="form-control"
+            placeholder="Number of Bathrooms"
+        >
+        <label for="bathrooms">Bathrooms</label>
+        <br>
+        <input name="bedrooms"
+            required
+            min="0" 
+            onInput="this.value = Math.abs(this.value)"
+            ngModel 
+            #bedrooms="ngModel"
+            id="bedrooms" 
+            type="number" 
+            class="form-control"
+            placeholder="Number of Bedrooms"
+        >
+        <label for="bedrooms">Bedrooms</label>
+        <br>
+        <input name="schoolArea"
+            required
+            ngModel 
+            #schoolArea="ngModel"
+            id="school_area" 
+            type="text" 
+            class="form-control"
+            placeholder="School Area"
+        >
+        <label for="schoolArea">School District</label>
+        <br><br>
+        <input name="listingDate" 
+            required
+            [(ngModel)]="listingDate"
+            id="listingDate"
+            type="date" 
+            class="form-control"
+        >
+        <label for="listingDate">Listing Date</label>
+        <br>
+        <select name="status" 
+        required
+        ngModel 
+            #status="ngModel"
+            id="status" 
+            class="form-control"
+            >
+            <option value="For Sale">For Sale</option>
+            <option value="Pending">Pending</option>
+            <option value="Under Contract">Under Contract</option>
+            <option value="Sold">Sold</option>
+        </select>
+        <label for="status">Status</label>
+        <div 
+            class="alert" 
+            *ngIf=" (price.touched && !price.valid) || 
+                    (squareFootage.touched && !squareFootage.valid) || 
+                    (bathrooms.touched && !bathrooms.valid) || 
+                    (bedrooms.touched && !bedrooms.valid) || 
+                    (schoolArea.touched && !schoolArea.valid) || 
+                    (status.touched &&!status.valid)"
+            >
+            <div>Please review listing fields. </div>
+        </div>
     </fieldset>
     <fieldset>
-        <legend>Home Features: </legend>
-
-        <input 
-        type="text" 
-        ngModel 
-        id="square_footage" 
-        name="squareFootage" 
-        placeholder="Square Footage">
-
-        <input 
-        type="number" 
-        ngModel 
-        id="bathrooms" 
-        name="bathrooms" 
-        placeholder="Number of Bathrooms">
-
-        <input 
-        type="number" 
-        ngModel 
-        id="bedrooms" 
-        name="bedrooms"
-        placeholder="Number of Bedrooms">
-
-        <input 
-        type="checkbox" 
-        [(ngModel)]="centralCooling" 
-        id="central_cooling" 
-        name="centralCooling" 
-        value="TRUE">
+        <legend>Amenities and Rooms</legend>
+        <input name="centralCooling" 
+            [(ngModel)]="centralCooling"
+            id="central_cooling" 
+            type="checkbox" 
+            class="form-control room" 
+            value="TRUE"
+        >
         <label for="central_cooling">Central AC </label>
-
-        <input 
-        type="checkbox" 
-        [(ngModel)]="centralHeating" 
-        id="central_heating" 
-        name="centralHeating" 
-        value="TRUE">
-        <label for="central_heating">Central heating </label>
-
-        <input 
-        type="checkbox" 
-        [(ngModel)]="garage" 
-        id="garage" 
-        name="garage" 
-        value="TRUE">
+        <br>
+        <input name="centralHeating" 
+            [(ngModel)]="centralHeating" 
+            id="central_heating" 
+            type="checkbox" 
+            class="form-control room"
+            value="TRUE"
+        >
+        <label for="central_heating">Central Heating </label>
+        <br>
+        <input name="garage" 
+            [(ngModel)]="garage" 
+            id="garage" 
+            type="checkbox" 
+            class="form-control room"
+            value="TRUE"
+        >
         <label for="garage">Garage </label>
-
-        <input 
-        type="text" 
-        ngModel 
-        id="school_area" 
-        name="schoolArea" 
-        placeholder="School Area">
-
-        <input 
-        type="date" 
-        [(ngModel)]="listingDate"
-        name="listingDate" 
-        id="listingDate"
-        [value]='listingDate'
-        onload="getDate()">
-
+        <br>
     </fieldset>
-    <label for="status">Status: </label>
-    <select name="status" ngModel id="status" name="status">
-        <option>For Sale</option>
-        <option>Pending</option>
-        <option>Under Contract</option>
-        <option>Sold</option>
-    </select>
-    <label for="price">Price: </label>
-    <input type="text" id="price" ngModel name="price">
+
     <!-- <label for="realtor_id">Realtor ID: </label>
     <input type="text" id="realtor_id" ngModel name="realtorID"> -->
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit"  [disabled]="listingForm.invalid">
 </form>
