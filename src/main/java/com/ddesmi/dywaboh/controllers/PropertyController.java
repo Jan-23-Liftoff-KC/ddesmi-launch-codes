@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/properties")
@@ -31,6 +32,13 @@ public class PropertyController {
     public Properties addProperty(@RequestBody Properties property){
         Properties newProperty = propertiesRepository.save(property);
         return newProperty;
+    }
+
+    @PutMapping("/update/{id}")
+    public Properties updateProperty(@RequestBody Properties property,@PathVariable int id) {
+        property.setId(id);
+        propertiesRepository.save(property);
+        return property;
     }
 
 // Added a realtor controller for testing
