@@ -21,6 +21,7 @@ export class ListingFormComponent implements OnInit {
   constructor(private listingService: ListingService) { }
 
   ngOnInit(): void {
+    
   }
 
   public onAddListing(listingForm: NgForm): void {
@@ -34,5 +35,4 @@ export class ListingFormComponent implements OnInit {
       }
     )
   };
-
 }
