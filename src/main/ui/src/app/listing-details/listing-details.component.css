@@ -1,3 +1,38 @@
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+ /* Clear floats after the columns 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+  }
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+ div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+ div.desc {
+    padding: 15px;
+    text-align: center;
+ }
+/*---------------------------
+---------------------------*/
 a ul{
     /* border: 2px solid gray; */
     padding:1rem;
@@ -36,3 +71,4 @@ ul {
     grid-area: sidebar;
     overflow-y: scroll; 
 }
+
