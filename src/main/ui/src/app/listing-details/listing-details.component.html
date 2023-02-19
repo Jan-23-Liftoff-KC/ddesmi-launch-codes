@@ -1,17 +1,22 @@
-<app-navbar></app-navbar>
-<div class="container">
+<div class=header><h1>Property Listings</h1></div>
+<div class="gallery">
 <div class="row">
-    <div class=".coloumn" style="background-color:#ddd">
+    <div class="coloumn">
 <div *ngFor="let listing of listings">
-    <ul>
-        <li>House Price : {{listing.price}}</li>
-        <li>Listing Id : {{listing.id}}</li>
-        <li>House address : {{listing.address}}</li>
-        <li>State : {{listing.city}}, {{listing.state}} {{listing.zip}}</li>
-        <li>Bedrooms : {{listing.bedrooms}} bedrooms</li>
-        
-    </ul>
+    <a target="_blank" href="../assets/pexels-photo-2724749.webp">
+       <img src="../assets/pexels-photo-2724749.webp" alt = "property pics" width="175px" height="175px">
+       
+    </a> 
+       <div class="desc"><span style="font-size:20px;">${{listing.price}}</span><br> 
+        {{listing.bedrooms}} bedrooms || {{listing.bathrooms}} bathrooms<br>
+        {{listing.address}}<br>
+     {{listing.city}} {{listing.state}} {{listing.zip}}<br>  
+     {{listing.images[0].imageFilePath}}<br>
+       </div>
+       <img src={{listing.images[0].imageFilePath}} alt = "property pics" width="175px" height="175px">
 </div>
 </div>
 </div>
 </div>
+
+
