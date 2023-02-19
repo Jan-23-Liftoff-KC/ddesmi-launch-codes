@@ -1,9 +1,14 @@
-<div *ngFor="let listing of listings">
-    <ul>
-        <li>{{listing.price}}</li>
-        <li>{{listing.id}}</li>
-        <li>{{listing.address}}</li>
-        <li>{{listing.city}}, {{listing.state}} {{listing.zip}}</li>
-        <li>{{listing.bedrooms}} bedrooms</li>
-    </ul>
+<div id="listing-content">
+    <div id="all-listings">
+        <a *ngFor="let listing of listings" [routerLink]="['/properties', listing.id]">
+            <ul routerLinkActive="active">
+                <li>Home ID: {{listing.id}}</li>
+                <li>{{listing.price | currency}}</li>
+                <li>{{listing.bedrooms}} Bedrooms {{listing.bathrooms}} Bathrooms</li>
+                <li>{{listing.address}}</li>
+                <li>{{listing.city}}, {{listing.state}} {{listing.zip}}</li>
+            </ul>
+        </a>
+    </div>
+    <div id="listing-detail"><router-outlet></router-outlet></div>
 </div>

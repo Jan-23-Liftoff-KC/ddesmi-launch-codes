@@ -1,3 +1,38 @@
-div{
-    border: 2px solid gray;
+a ul{
+    /* border: 2px solid gray; */
+    padding:1rem;
+    color:black;
+    list-style-type: none;
+}
+ul {
+    border: 1px solid lightblue;
+}
+a:hover ul{
+    cursor: pointer;
+    background-color: #00800020;
+    text-decoration: none;
+}
+.active {
+    background-color:violet;
+    color:yellow;
+}
+ul {
+    margin:1rem;
+    padding:1rem;
+    font-size: 1rem;
+}
+
+#listing-content {
+    display:grid;
+    grid-template-areas: "sidebar main";
+    grid-template-columns: 20rem 1fr;
+    height:80vh;
+}
+#listing-detail {
+    grid-area: main;
+    overflow-y: scroll; 
+}
+#all-listings{
+    grid-area: sidebar;
+    overflow-y: scroll; 
 }
