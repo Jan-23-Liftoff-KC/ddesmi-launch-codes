@@ -59,5 +59,4 @@ public class Images {
     //CONSTRUCTORS
     public Images() {
     }
-
 }

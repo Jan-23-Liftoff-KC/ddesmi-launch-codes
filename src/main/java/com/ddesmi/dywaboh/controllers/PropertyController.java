@@ -17,6 +17,7 @@ public class PropertyController {
 
     @Autowired
     PropertiesRepository propertiesRepository;
+
     @Autowired
     private RealtorsRepository realtorsRepository;
 
@@ -25,6 +26,13 @@ public class PropertyController {
         List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
         return foundProperties;
     }
+
+    @GetMapping("/{id}")
+    public Properties getProperty(@PathVariable("id") Integer id){
+        Properties foundProperty = propertiesRepository.findById(id).get();
+        return foundProperty;
+    }
+
 
     @PostMapping("/add")
     public Properties addProperty(@RequestBody Properties property){
@@ -50,4 +58,3 @@ public class PropertyController {
 //        return objList;
 //    }
 }
-

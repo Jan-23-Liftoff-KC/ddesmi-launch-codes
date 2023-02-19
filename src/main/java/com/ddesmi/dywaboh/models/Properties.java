@@ -225,5 +225,4 @@ public class Properties {
         this.images = images;
         this.prices = prices;
     }
-
 }

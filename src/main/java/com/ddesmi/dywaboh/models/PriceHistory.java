@@ -23,7 +23,6 @@ public class PriceHistory {
     @JoinColumn(name="properties_id")
     private Properties properties;
 
-
     //GETTERS AND SETTERS
     public int getId() {
         return id;
@@ -57,9 +56,7 @@ public class PriceHistory {
 //        this.properties = properties;
 //    }
 
-
     //CONSTRUCTORS
     public PriceHistory() {
     }
-
 }

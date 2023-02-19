@@ -1,4 +1,5 @@
-<div class=header><h1>Property Listings</h1></div>
+
+<!--<div class=header><h1>Property Listings</h1></div>
 
     
 <div class="gallery" *ngFor="let listing of listings">
@@ -15,6 +16,22 @@
        </div>
 </div>
 
-</div>
+</div>-->
 
+
+
+<div id="listing-content">
+    <div id="all-listings">
+        <a class="desc" *ngFor="let listing of listings" [routerLink]="['/properties', listing.id]">
+            <ul routerLinkActive="active">
+                <li>Home ID: {{listing.id}}</li>
+                <li>{{listing.price | currency}}</li>
+                <li>{{listing.bedrooms}} Bedrooms {{listing.bathrooms}} Bathrooms</li>
+                <li>{{listing.address}}</li>
+                <li>{{listing.city}}, {{listing.state}} {{listing.zip}}</li>
+            </ul>
+        </a>
+    </div>
+    <div id="listing-detail"><router-outlet></router-outlet></div>
+</div>
 
