@@ -14,13 +14,14 @@ export class ListingFormComponent implements OnInit {
   centralHeating: boolean = false;
   centralCooling: boolean = false;
   garage: boolean = false;
-  listingDate = new Date().setDate(2023);
+  listingDate = new Date();
 
 
   public listing: Listing | undefined;
   constructor(private listingService: ListingService) { }
 
   ngOnInit(): void {
+    
   }
 
   public onAddListing(listingForm: NgForm): void {
