@@ -18,10 +18,10 @@ const routes: Routes = [
   {path:"properties", component: ListingDetailsComponent, children:[
     {path:':id', component: SingleListingComponent},
     {path:"edit/:id", component: ListingFormComponent}
-    { path: 'app', component: AppComponent},
+  ]},
+  { path: 'app', component: AppComponent},
     { path: 'home', component: HomeComponent },
     { path: 'listings', component: ListingDetailsComponent }
-  ]}
 ]
 @NgModule({
   declarations: [
