@@ -58,7 +58,14 @@ public class PropertyController {
             listing.setSchoolArea(property.getSchoolArea());
             return propertiesRepository.save(listing);
         });
+
     }
+
+    @DeleteMapping("delete/{id}")
+    public void deleteProperty(@PathVariable int id){
+        propertiesRepository.deleteById(id);
+    }
+
 
 // Added a realtor controller for testing
 //    @PostMapping("/addr")
