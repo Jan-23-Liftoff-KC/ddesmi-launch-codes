@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
+import { SingleListingComponent } from './single-listing/single-listing.component';
 
 
 const routes: Routes = [
@@ -26,10 +27,14 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ListingDetailsComponent,
-    ListingFormComponent
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent, 
+    ListingFormComponent,
+    SingleListingComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule
+    BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

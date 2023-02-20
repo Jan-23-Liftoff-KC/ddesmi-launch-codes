@@ -36,4 +36,5 @@ export class SingleListingComponent implements OnInit {
     this.router.navigate(['edit', this.listing.id],
       {relativeTo: this.activatedRoute.parent})
   }
+  
 }

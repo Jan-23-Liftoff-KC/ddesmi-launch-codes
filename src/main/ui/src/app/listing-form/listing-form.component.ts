@@ -3,6 +3,8 @@ import { AbstractControl, ControlValueAccessor, FormControl, NgForm } from '@ang
 import { ListingService } from '../listing/listing.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Listing } from '../listing/listing';
+import { SingleListingComponent } from '../single-listing/single-listing.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listing-form',
@@ -16,13 +18,28 @@ export class ListingFormComponent implements OnInit {
   garage: boolean = false;
   listingDate = new Date();
 
+  public listing: Listing | undefined ;
 
-  public listing: Listing | undefined;
-  constructor(private listingService: ListingService) { }
+  constructor(private listingService: ListingService, private activatedRoute: ActivatedRoute) { 
+    this.activatedRoute = activatedRoute
 
-  ngOnInit(): void {
-    
   }
+  ngOnInit(): void {
+  
+    this.activatedRoute.paramMap
+    .subscribe(params => {
+      let id = +params.get('id')!;
+      this.listingService.getListing(id).subscribe(
+        (response: Listing) => {
+          this.listing = response;
+        }
+    )
+  })
+  }
+
+
+
+
 
   public onAddListing(listingForm: NgForm): void {
     this.listingService.addListing(listingForm.value).subscribe(
@@ -35,4 +52,18 @@ export class ListingFormComponent implements OnInit {
       }
     )
   };
+
+  public onEditListing(editListingForm: NgForm): void {
+    this.listingService.updateListing(editListingForm.value, this.listing?.id).subscribe(
+      (response: Listing) => {
+        console.log(response);
+        // this.getListings();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  };
+
+  
 }

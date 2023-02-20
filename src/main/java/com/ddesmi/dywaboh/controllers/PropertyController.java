@@ -2,13 +2,11 @@ package com.ddesmi.dywaboh.controllers;
 
 
 import com.ddesmi.dywaboh.models.Properties;
-import com.ddesmi.dywaboh.models.Realtors;
 import com.ddesmi.dywaboh.models.data.PropertiesRepository;
 import com.ddesmi.dywaboh.models.data.RealtorsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,10 +39,25 @@ public class PropertyController {
         return newProperty;
     }
 
-    @PutMapping("/update")
-    public Properties updateProperty(@RequestBody Properties property) {
-        propertiesRepository.save(property);
-        return property;
+    @PutMapping("/update/{id}")
+    public Optional<Properties> updateProperty(@RequestBody Properties property, @PathVariable int id) {
+        return propertiesRepository.findById(id).map(listing ->{
+            listing.setAddress(property.getAddress());
+            listing.setCity(property.getCity());
+            listing.setState(property.getState());
+            listing.setZip(property.getZip());
+            listing.setPrice(property.getPrice());
+            listing.setBathrooms(property.getBathrooms());
+            listing.setBedrooms(property.getBedrooms());
+            listing.setCentralHeating(property.getCentralHeating());
+            listing.setCentralCooling(property.getCentralCooling());
+            listing.setGarage(property.getGarage());
+            listing.setSquareFootage(property.getSquareFootage());
+            listing.setListingDate(property.getListingDate());
+            listing.setStatus(property.getStatus());
+            listing.setSchoolArea(property.getSchoolArea());
+            return propertiesRepository.save(listing);
+        });
     }
 
 // Added a realtor controller for testing
