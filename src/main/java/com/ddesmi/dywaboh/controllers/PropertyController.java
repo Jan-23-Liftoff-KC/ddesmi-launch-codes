@@ -41,7 +41,7 @@ public class PropertyController {
         return newProperty;
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update")
     public Properties updateProperty(@RequestBody Properties property) {
         propertiesRepository.save(property);
         return property;
