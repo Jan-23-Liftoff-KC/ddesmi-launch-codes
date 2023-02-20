@@ -15,13 +15,12 @@ import { SingleListingComponent } from './single-listing/single-listing.componen
 
 
 const routes: Routes = [
-  {path:"properties", component: ListingDetailsComponent, children:[
+  {path:"listings", component: ListingDetailsComponent, children:[
     {path:':id', component: SingleListingComponent},
     {path:"edit/:id", component: ListingFormComponent}
-  ]},
+  ]}, 
   { path: 'app', component: AppComponent},
-    { path: 'home', component: HomeComponent },
-    { path: 'listings', component: ListingDetailsComponent }
+  { path: 'home', component: HomeComponent },
 ]
 @NgModule({
   declarations: [
