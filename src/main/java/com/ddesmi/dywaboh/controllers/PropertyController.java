@@ -28,6 +28,13 @@ public class PropertyController {
         return foundProperties;
     }
 
+    @GetMapping("/{id}")
+    public Properties getProperty(@PathVariable("id") Integer id){
+        Properties foundProperty = propertiesRepository.findById(id).get();
+        return foundProperty;
+    }
+
+
     @PostMapping("/add")
     public Properties addProperty(@RequestBody Properties property){
         Properties newProperty = propertiesRepository.save(property);

@@ -2,22 +2,34 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router'
+
 
 import { AppComponent } from './app.component';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
-import { ListingEditComponent } from './listing-edit/listing-edit.component';
-import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 
+const routes: Routes = [
+  {path:"properties", component: ListingDetailsComponent, children:[
+    {path:':id', component: SingleListingComponent},
+    {path:"edit/:id", component: ListingFormComponent}
+  ]},
+  { path: 'app', component: AppComponent},
+    { path: 'home', component: HomeComponent },
+    { path: 'listings', component: ListingDetailsComponent }
+]
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    ListingFormComponent,
+    ListingDetailsComponent,
+    ListingFormComponent
   ],
   imports: [
-    AppRoutingModule, BrowserModule, HttpClientModule, FormsModule
+    BrowserModule, HttpClientModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
