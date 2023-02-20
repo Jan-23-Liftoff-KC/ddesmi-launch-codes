@@ -42,8 +42,7 @@ public class PropertyController {
     }
 
     @PutMapping("/update/{id}")
-    public Properties updateProperty(@RequestBody Properties property,@PathVariable int id) {
-        property.setId(id);
+    public Properties updateProperty(@RequestBody Properties property) {
         propertiesRepository.save(property);
         return property;
     }
