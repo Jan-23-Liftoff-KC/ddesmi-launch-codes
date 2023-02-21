@@ -8,14 +8,14 @@
 </div>
 
 <ul>
-    <li>Home ID: {{listing.id}} | Listed: {{listing.listingDate | date}} </li>
-    <li>{{listing.price | currency}} - {{listing.status}}</li>
-    <li>{{listing.squareFootage}}sqft | {{listing.bedrooms}} Bedrooms | {{listing.bathrooms}} Bathrooms</li>
-    <li>{{listing.address}}</li>
-    <li>{{listing.city}}, {{listing.state}} {{listing.zip}}</li>
-    <li>Central AC: {{listing.centralCooling}}</li>
-    <li>Central Heat: {{listing.centralHeating}}</li>
-    <li>Garage: {{listing.garage}}</li>
-    <li>School Destrict: {{listing.schoolArea}}</li>
+    <li>Home ID: {{listing?.id}} | Listed: {{listing?.listingDate | date}} </li>
+    <li>{{listing?.price | currency}} - {{listing?.status}}</li>
+    <li>{{listing?.squareFootage}}sqft | {{listing?.bedrooms}} Bedrooms | {{listing?.bathrooms}} Bathrooms</li>
+    <li>{{listing?.address}}</li>
+    <li>{{listing?.city}}, {{listing?.state}} {{listing?.zip}}</li>
+    <li>Central AC: {{listing?.centralCooling}}</li>
+    <li>Central Heat: {{listing?.centralHeating}}</li>
+    <li>Garage: {{listing?.garage}}</li>
+    <li>School Destrict: {{listing?.schoolArea}}</li>
 </ul>
 <button id="edit" (click)="closeEditProperty()">Edit</button>
