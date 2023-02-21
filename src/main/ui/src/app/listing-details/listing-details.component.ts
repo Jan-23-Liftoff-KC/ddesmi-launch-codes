@@ -9,7 +9,7 @@ import { ListingService } from '../listing/listing.service';
   styleUrls: ['./listing-details.component.css']
 })
 export class ListingDetailsComponent implements OnInit {
-  public listings: Listing[] | undefined;
+  public listings: Listing[] =[];
   
   constructor(private listingService: ListingService) { }
 
@@ -21,6 +21,7 @@ export class ListingDetailsComponent implements OnInit {
     this.listingService.getListings().subscribe(
       (response: Listing[]) => {
         this.listings = response;
+        console.log(this.listings);
       },
       (error: HttpErrorResponse) => {
         alert("Could not fetch listings");
