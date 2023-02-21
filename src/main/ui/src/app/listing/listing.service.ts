@@ -27,4 +27,9 @@ export class ListingService {
   public updateListing(listing: Listing, id: number | undefined): Observable<Listing> {
     return this.http.put<Listing>(`${this.javaServerUrl}/properties/update/${id}`, listing);
   }
+
+  public deleteListing(id: Number | undefined): Observable<void> {
+    return this.http.delete<void>(`${this.javaServerUrl}/properties/delete/${id}`);
+  }
+
 }
