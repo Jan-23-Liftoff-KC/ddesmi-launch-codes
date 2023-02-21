@@ -1,3 +1,12 @@
+<div class="image-gallery">
+        <div class="image-item" *ngFor="let image of listing.images" >
+            <a *ngIf="image.imageFilePath" href="../assets/images/{{image.imageFilePath}}.webp" target="_blank">
+                <img *ngIf="image.imageFilePath" src="../assets/images/{{image.imageFilePath}}.webp" alt="property image"/>
+            </a>
+            <!-- <div class="overlay"><span>Image title</span></div> -->
+    </div>
+</div>
+
 <ul>
     <li>Home ID: {{listing?.id}} | Listed: {{listing?.listingDate | date}} </li>
     <li>{{listing?.price | currency}} - {{listing?.status}}</li>
