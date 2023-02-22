@@ -2,8 +2,10 @@ package com.ddesmi.dywaboh.controllers;
 
 
 import com.ddesmi.dywaboh.models.Properties;
+import com.ddesmi.dywaboh.models.data.ImagesRepository;
 import com.ddesmi.dywaboh.models.data.PropertiesRepository;
 import com.ddesmi.dywaboh.models.data.RealtorsRepository;
+import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,8 @@ public class PropertyController {
 
     @Autowired
     private RealtorsRepository realtorsRepository;
+    @Autowired
+    private ImagesRepository imagesRepository;
 
     @GetMapping("/all")
     public List<Properties> allProperties(){
@@ -61,7 +65,7 @@ public class PropertyController {
 
     }
 
-    @DeleteMapping("delete/{id}")
+    @RequestMapping(value="delete/{id}", method=RequestMethod.DELETE)
     public void deleteProperty(@PathVariable int id){
         propertiesRepository.deleteById(id);
     }

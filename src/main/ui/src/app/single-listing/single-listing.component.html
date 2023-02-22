@@ -1,5 +1,5 @@
 <div class="image-gallery">
-        <div class="image-item" *ngFor="let image of listing.images" >
+        <div class="image-item" *ngFor="let image of listing?.images" >
             <a *ngIf="image.imageFilePath" href="../assets/images/{{image.imageFilePath}}.webp" target="_blank">
                 <img *ngIf="image.imageFilePath" src="../assets/images/{{image.imageFilePath}}.webp" alt="property image"/>
             </a>
