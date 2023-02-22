@@ -8,6 +8,8 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static javax.persistence.CascadeType.REMOVE;
+
 @Entity
 public class Properties {
 
@@ -60,10 +62,10 @@ public class Properties {
     @NotBlank
     private String schoolArea;
 
-    @OneToMany(mappedBy = "properties")
+    @OneToMany(cascade = REMOVE, mappedBy = "properties")
     private List<Images> images = new ArrayList<>();
 
-    @OneToMany(mappedBy = "properties")
+    @OneToMany(cascade = REMOVE,mappedBy = "properties")
     private List<PriceHistory> prices = new ArrayList<>();
 
     @ManyToOne

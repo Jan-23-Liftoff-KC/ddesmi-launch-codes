@@ -19,7 +19,7 @@ public class Images {
     @NotBlank
     private Date uploadDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="properties_id")
     private Properties properties;
 
