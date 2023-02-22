@@ -66,7 +66,6 @@ export class ListingFormComponent implements OnInit {
   };
 
   public onDeleteListing(id: Number| undefined): void {
-    alert("Are you sure you want to Delete this listing?")
     this.listingService.deleteListing(id).subscribe(
       (response: void) => {
         console.log(response);
