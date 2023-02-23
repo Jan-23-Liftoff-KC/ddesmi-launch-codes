@@ -1,7 +1,10 @@
 package com.ddesmi.dywaboh.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
@@ -23,9 +26,17 @@ public class Realtors {
     @NotBlank
     private String username;
 
+    public String getPwHash() {
+        return pwHash;
+    }
+
+
     @NotBlank
     @Size(min=8, max=50, message="Password must be at least 8 characters long")
-    private String password;
+    @NotNull
+    private String pwHash;
+
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @NotBlank
     private String agency;
@@ -76,13 +87,6 @@ public class Realtors {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getAgency() {
         return agency;
@@ -128,7 +132,17 @@ public class Realtors {
     public Realtors() {
     }
 
+    //Password matching
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
+    }
+
     public Realtors(ArrayList<Properties> properties) {
         this.properties = properties;
+    }
+
+    public Realtors(String username, String password) {
+        this.username = username;
+        this.pwHash = encoder.encode(password);
     }
 }
