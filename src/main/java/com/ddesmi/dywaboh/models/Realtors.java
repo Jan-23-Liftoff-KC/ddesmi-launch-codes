@@ -26,11 +26,6 @@ public class Realtors {
     @NotBlank
     private String username;
 
-    public String getPwHash() {
-        return pwHash;
-    }
-
-
     @NotBlank
     @Size(min=8, max=50, message="Password must be at least 8 characters long")
     @NotNull
@@ -135,10 +130,6 @@ public class Realtors {
     //Password matching
     public boolean isMatchingPassword(String password) {
         return encoder.matches(password, pwHash);
-    }
-
-    public Realtors(ArrayList<Properties> properties) {
-        this.properties = properties;
     }
 
     public Realtors(String username, String password) {
