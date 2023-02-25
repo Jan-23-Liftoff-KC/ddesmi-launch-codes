@@ -8,6 +8,4 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface RealtorsRepository extends CrudRepository<Realtors, Integer> {
-    Realtors findByUsername(String username);
-
 }

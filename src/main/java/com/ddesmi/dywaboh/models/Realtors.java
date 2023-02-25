@@ -24,16 +24,6 @@ public class Realtors {
     private String lastName;
 
     @NotBlank
-    private String username;
-
-    @NotBlank
-    @Size(min=8, max=50, message="Password must be at least 8 characters long")
-    @NotNull
-    private String pwHash;
-
-    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-    @NotBlank
     private String agency;
 
     @NotBlank
@@ -73,15 +63,6 @@ public class Realtors {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
 
     public String getAgency() {
         return agency;
@@ -125,15 +106,5 @@ public class Realtors {
 
     //CONSTRUCTORS
     public Realtors() {
-    }
-
-    //Password matching
-    public boolean isMatchingPassword(String password) {
-        return encoder.matches(password, pwHash);
-    }
-
-    public Realtors(String username, String password) {
-        this.username = username;
-        this.pwHash = encoder.encode(password);
     }
 }

@@ -1,7 +1,6 @@
 package com.ddesmi.dywaboh.controllers;
-
-import com.ddesmi.dywaboh.models.Realtors;
-import com.ddesmi.dywaboh.models.data.RealtorsRepository;
+import com.ddesmi.dywaboh.models.User;
+import com.ddesmi.dywaboh.models.data.UserRepository;
 import com.ddesmi.dywaboh.models.dto.LoginDTO;
 import com.ddesmi.dywaboh.models.dto.RegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +16,23 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Optional;
 
+//NEED TO REFACTOR TO RETURN STATUS CODES INSTEAD OF STRINGS USED FROM MVC FORMAT
+
 @Controller
 public class AuthenticationController {
 
     @Autowired
-    RealtorsRepository realtorsRepository;
+    UserRepository userRepository;
 
     private static final String userSessionKey = "user";
 
-    public Realtors getUserFromSession(HttpSession session) {
+    public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
         if (userId == null) {
             return null;
         }
 
-        Optional<Realtors> user = realtorsRepository.findById(userId);
+        Optional<User> user = userRepository.findById(userId);
 
         if (user.isEmpty()) {
             return null;
@@ -40,14 +41,13 @@ public class AuthenticationController {
         return user.get();
     }
 
-    private static void setUserInSession(HttpSession session, Realtors realtors) {
-        session.setAttribute(userSessionKey, realtors.getId());
+    private static void setUserInSession(HttpSession session, User user) {
+        session.setAttribute(userSessionKey, user.getId());
     }
 
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterDTO());
-        model.addAttribute("title", "Register");
         return "register";
     }
 
@@ -60,9 +60,9 @@ public class AuthenticationController {
             return "register";
         }
 
-        Realtors existingRealtor = realtorsRepository.findByUsername(registerDTO.getUsername());
+        User existingUser = userRepository.findByUsername(registerDTO.getUsername());
 
-        if (existingRealtor != null) {
+        if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
             model.addAttribute("title", "Register");
             return "register";
@@ -72,15 +72,14 @@ public class AuthenticationController {
         String verifyPassword = registerDTO.getVerifyPassword();
         if (!password.equals(verifyPassword)) {
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-            model.addAttribute("title", "Register");
             return "register";
         }
 
-        Realtors newRealtor = new Realtors(registerDTO.getUsername(), registerDTO.getPassword());
-        realtorsRepository.save(newRealtor);
+        User newRealtor = new User(registerDTO.getUsername(), registerDTO.getPassword());
+        userRepository.save(newRealtor);
         setUserInSession(request.getSession(), newRealtor);
 
-        return "redirect:";
+        return "";
     }
 
     @GetMapping("/login")
@@ -100,9 +99,9 @@ public class AuthenticationController {
             return "login";
         }
 
-        Realtors theRealtor = realtorsRepository.findByUsername(loginDTO.getUsername());
+        User theUser = userRepository.findByUsername(loginDTO.getUsername());
 
-        if (theRealtor == null) {
+        if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
             model.addAttribute("title", "Log In");
             return "login";
@@ -110,13 +109,13 @@ public class AuthenticationController {
 
         String password = loginDTO.getPassword();
 
-        if (!theRealtor.isMatchingPassword(password)) {
+        if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             model.addAttribute("title", "Log In");
             return "login";
         }
 
-        setUserInSession(request.getSession(), theRealtor);
+        setUserInSession(request.getSession(), theUser);
 
         return "redirect:";
     }
