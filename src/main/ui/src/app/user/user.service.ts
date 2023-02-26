@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { UserRegister } from './user-register';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,9 @@ export class UserService{
     
     public addUser(userReg:UserRegister): Observable<UserRegister> {
         return this.http.post<UserRegister>(`${this.javaServerUrl}/user/register`, userReg);
+      }
+
+      public userLogin(user:User): Observable<User> {
+        return this.http.post<User>(`${this.javaServerUrl}/user/login`, user);
       }
 }

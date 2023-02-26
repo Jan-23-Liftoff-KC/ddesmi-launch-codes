@@ -1,8 +1,10 @@
+<p>user-login works!</p>
+
 <p>user-register works!</p>
 
 
-<form  #userRegisterForm="ngForm" (ngSubmit)="onUserRegister(userRegisterForm)">
-    <p>Create Account</p>
+<form  #userLoginForm="ngForm" (ngSubmit)="onUserLogin(userLoginForm)">
+    <p>Login</p>
 
 <label for="username">Username</label>
 <input 
@@ -28,18 +30,6 @@
     placeholder="password">
 
 
-<label for="verifyPassword">Verify Password</label>
-<input 
-name="verifyPassword" 
-    required 
-    ngModel
-    #verifyPassword="ngModel" 
-    id="verifyPassword" 
-    type="password" 
-    class="form-control"
-    placeholder="verifyPassword">
-
-
-
-<input type="submit" value="Submit" [disabled]="userRegisterForm.invalid">
+<input type="submit" value="Submit" [disabled]="userLoginForm.invalid">
 </form>
+<a href="user/register"> Create An Account</a>

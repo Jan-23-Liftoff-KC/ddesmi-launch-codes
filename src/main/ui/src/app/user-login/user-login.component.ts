@@ -2,16 +2,15 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserRegister } from '../user/user-register';
+import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 
 @Component({
-  selector: 'app-user-register',
-  templateUrl: './user-register.component.html',
-  styleUrls: ['./user-register.component.css']
+  selector: 'app-user-login',
+  templateUrl: './user-login.component.html',
+  styleUrls: ['./user-login.component.css']
 })
-export class UserRegisterComponent implements OnInit {
-  public userReg!: UserRegister;
+export class UserLoginComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) { 
     this.activatedRoute = activatedRoute;
@@ -19,10 +18,10 @@ export class UserRegisterComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  
-  public onUserRegister(userReg: NgForm): void {
-    this.userService.addUser(userReg.value).subscribe(
-      (response: UserRegister) => {
+
+  public onUserLogin(user: NgForm): void {
+    this.userService.userLogin(user.value).subscribe(
+      (response: User) => {
         console.log(response);
       },
       (error: HttpErrorResponse) => {
@@ -31,6 +30,4 @@ export class UserRegisterComponent implements OnInit {
     )
   };
 
-
 }
-

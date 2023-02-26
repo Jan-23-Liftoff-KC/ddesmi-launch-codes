@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { SingleListingComponent } from './single-listing/single-listing.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
     { path: 'listings', component: ListingDetailsComponent },
 
   {path:"user", children:[
-    {path:"register", component:UserRegisterComponent}
+    {path:"register", component:UserRegisterComponent},
+    {path:"login", component:UserLoginComponent}
   ]}
 ]
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     FooterComponent, 
     ListingFormComponent,
     SingleListingComponent,
-    UserRegisterComponent
+    UserRegisterComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)

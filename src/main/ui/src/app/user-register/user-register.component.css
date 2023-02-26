@@ -1,0 +1,19 @@
+.alert {
+    background-color: #ff000020;
+    color:brown;
+    margin:.5rem;
+    padding:.25rem;
+}
+.form-control {
+    margin:.5rem .5rem 0px .5rem;
+    display:inline-block;
+}
+
+form {
+    background-color:cornsilk;
+    padding: 1rem;
+}
+
+.form-control.ng-invalid.ng-touched {
+    border:solid 1px red;
+}

@@ -50,14 +50,14 @@ public class AuthenticationController {
     }
 
     // test for returning not null after register
-    @GetMapping("/register")
-    public List<Properties> allProperties(){
-        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
-        return foundProperties;
-    }
+//    @GetMapping("/register")
+//    public List<Properties> allProperties(){
+//        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
+//        return foundProperties;
+//    }
 
     @RequestMapping(value="/register", method= {RequestMethod.POST} )
-    public ResponseEntity<User> processRegistrationForm(@ModelAttribute @Valid RegisterDTO registerDTO,
+    public ResponseEntity<User> processRegistrationForm(@RequestBody RegisterDTO registerDTO,
                                                         Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
@@ -83,37 +83,33 @@ public class AuthenticationController {
 
         return new ResponseEntity<>(newUser,HttpStatus.OK);
     }
-    
 
-    @PostMapping("/login")
-    public String processLoginForm(@ModelAttribute @Valid LoginDTO loginDTO,
-                                   Errors errors, HttpServletRequest request,
-                                   Model model) {
+
+    @RequestMapping(value="/login", method= {RequestMethod.POST} )
+    public ResponseEntity<User>  processLoginForm(@RequestBody LoginDTO loginDTO,
+                                   Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Log In");
-            return "login";
+           return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         User theUser = userRepository.findByUsername(loginDTO.getUsername());
 
         if (theUser == null) {
             errors.rejectValue("username", "user.invalid", "The given username does not exist");
-            model.addAttribute("title", "Log In");
-            return "login";
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         String password = loginDTO.getPassword();
 
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
-            model.addAttribute("title", "Log In");
-            return "login";
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return new ResponseEntity<>(theUser,HttpStatus.OK);
     }
 
     @GetMapping("/logout")
