@@ -1,5 +1,4 @@
 export interface User {
-    username: string;
-    password: string;
-    verifyPassword: string;
+    username: string,
+    password: string
 }

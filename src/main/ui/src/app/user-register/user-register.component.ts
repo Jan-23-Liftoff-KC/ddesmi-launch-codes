@@ -1,24 +1,23 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../user/user';
+import { UserRegister } from '../user/user-register';
 import { UserService } from '../user/user.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-user-register',
+  templateUrl: './user-register.component.html',
+  styleUrls: ['./user-register.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserRegisterComponent implements OnInit {
 
   constructor(private userService: UserService) { }
   ngOnInit(): void {
   }
   public onUserRegister(listingForm: NgForm): void {
     this.userService.addUser(listingForm.value).subscribe(
-      (response: User) => {
+      (response: UserRegister) => {
         console.log(response);
-        // this.getListings();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -28,3 +27,4 @@ export class UserComponent implements OnInit {
 
 
 }
+
