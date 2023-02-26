@@ -112,6 +112,12 @@ public class AuthenticationController {
         return new ResponseEntity<>(theUser,HttpStatus.OK);
     }
 
+    @RequestMapping(value="/user/{id}", method= {RequestMethod.GET} )
+    public User getUser(@PathVariable int id){
+        User foundUser = userRepository.findById(id).get();
+        return foundUser;
+    }
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
