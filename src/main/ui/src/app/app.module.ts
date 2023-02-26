@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { SingleListingComponent } from './single-listing/single-listing.component';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './user-register/user.component';
 
 
 const routes: Routes = [

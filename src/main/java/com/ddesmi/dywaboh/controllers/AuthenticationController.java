@@ -47,11 +47,6 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-    @GetMapping("/register")
-    public String displayRegistrationForm(Model model) {
-        model.addAttribute(new RegisterDTO());
-        return "register";
-    }
 
     @PostMapping("/register")
     public ResponseEntity<User> processRegistrationForm(@ModelAttribute @Valid RegisterDTO registerDTO,
@@ -80,13 +75,7 @@ public class AuthenticationController {
 
         return new ResponseEntity<>(newUser,HttpStatus.OK);
     }
-
-    @GetMapping("/login")
-    public String displayLoginForm(Model model) {
-        model.addAttribute(new LoginDTO());
-        model.addAttribute("title", "Please Log in to see Cat Colonies");
-        return "login";
-    }
+    
 
     @PostMapping("/login")
     public String processLoginForm(@ModelAttribute @Valid LoginDTO loginDTO,
