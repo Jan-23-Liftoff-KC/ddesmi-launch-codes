@@ -3,7 +3,6 @@ import { AbstractControl, ControlValueAccessor, FormControl, NgForm } from '@ang
 import { ListingService } from '../listing/listing.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Listing } from '../listing/listing';
-import { SingleListingComponent } from '../single-listing/single-listing.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -57,7 +56,6 @@ export class ListingFormComponent implements OnInit {
     this.listingService.updateListing(editListingForm.value, this.listing?.id).subscribe(
       (response: Listing) => {
         console.log(response);
-        // this.getListings();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
