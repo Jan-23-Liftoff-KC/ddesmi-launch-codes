@@ -13,6 +13,10 @@ export class UserService{
     private javaServerUrl = environment.devServerUrl;
 
     constructor( private http: HttpClient) { }
+
+    public getUser(id: number): Observable<User> {
+      return this.http.get<User>(`${this.javaServerUrl}/user/${id}`);
+    }
     
     public addUser(userReg:UserRegister): Observable<UserRegister> {
         return this.http.post<UserRegister>(`${this.javaServerUrl}/user/register`, userReg);
