@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { SingleListingComponent } from './single-listing/single-listing.component';
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   ]},
   { path: 'app', component: AppComponent},
     { path: 'home', component: HomeComponent },
-    { path: 'listings', component: ListingDetailsComponent }
+    { path: 'listings', component: ListingDetailsComponent },
+  {path:"register", component: UserComponent}
 ]
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ const routes: Routes = [
     HomeComponent,
     FooterComponent, 
     ListingFormComponent,
-    SingleListingComponent
+    SingleListingComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)

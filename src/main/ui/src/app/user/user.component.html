@@ -1,0 +1,39 @@
+<p>user works!</p>
+
+
+<form  #userRegisterForm="ngForm" (ngSubmit)="onUserRegister(userRegisterForm)">
+    <p>Create Account</p>
+
+    <input name="username" 
+    required 
+    ngModel
+    #address="ngModel" 
+    id="username" 
+    type="text" 
+    class="form-control"
+    placeholder="username">
+<label for="username">Username</label>
+
+<input name="password" 
+required 
+ngModel
+#address="ngModel" 
+id="username" 
+type="password" 
+class="form-control"
+placeholder="password">
+<label for="password">password</label>
+
+<input name="verifyPassword" 
+required 
+ngModel
+#address="ngModel" 
+id="verifyPassword" 
+type="password" 
+class="form-control"
+placeholder="verifyPassword">
+<label for="verifyPassword">Verify Password</label>
+
+
+<input type="submit" value="Submit"  [disabled]="userRegisterForm.invalid">
+</form>

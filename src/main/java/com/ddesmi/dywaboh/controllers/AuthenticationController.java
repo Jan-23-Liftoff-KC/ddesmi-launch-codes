@@ -4,12 +4,14 @@ import com.ddesmi.dywaboh.models.data.UserRepository;
 import com.ddesmi.dywaboh.models.dto.LoginDTO;
 import com.ddesmi.dywaboh.models.dto.RegisterDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,7 +20,7 @@ import java.util.Optional;
 
 //NEED TO REFACTOR TO RETURN STATUS CODES INSTEAD OF STRINGS USED FROM MVC FORMAT
 
-@Controller
+@RestController
 public class AuthenticationController {
 
     @Autowired
@@ -52,34 +54,31 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public String processRegistrationForm(@ModelAttribute @Valid RegisterDTO registerDTO,
-                                          Errors errors, HttpServletRequest request,
-                                          Model model) {
+    public ResponseEntity<User> processRegistrationForm(@ModelAttribute @Valid RegisterDTO registerDTO,
+                                                        Errors errors, HttpServletRequest request) {
 
         if (errors.hasErrors()) {
-            return "register";
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         User existingUser = userRepository.findByUsername(registerDTO.getUsername());
 
         if (existingUser != null) {
-            errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            model.addAttribute("title", "Register");
-            return "register";
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
         String password = registerDTO.getPassword();
         String verifyPassword = registerDTO.getVerifyPassword();
         if (!password.equals(verifyPassword)) {
             errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-            return "register";
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        User newRealtor = new User(registerDTO.getUsername(), registerDTO.getPassword());
-        userRepository.save(newRealtor);
-        setUserInSession(request.getSession(), newRealtor);
+        User newUser = new User(registerDTO.getUsername(), registerDTO.getPassword());
+        userRepository.save(newUser);
+        setUserInSession(request.getSession(), newUser);
 
-        return "";
+        return new ResponseEntity<>(newUser,HttpStatus.OK);
     }
 
     @GetMapping("/login")
