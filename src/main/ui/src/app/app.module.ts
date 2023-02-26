@@ -23,7 +23,6 @@ const routes: Routes = [
   ]},
   { path: 'app', component: AppComponent},
     { path: 'home', component: HomeComponent },
-    { path: 'listings', component: ListingDetailsComponent },
 
   {path:"user", children:[
     {path:"register", component:UserRegisterComponent},
