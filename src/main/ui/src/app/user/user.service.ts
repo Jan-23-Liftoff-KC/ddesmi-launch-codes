@@ -14,6 +14,6 @@ export class UserService{
     constructor( private http: HttpClient) { }
     
     public addUser(userReg:UserRegister): Observable<UserRegister> {
-        return this.http.post<UserRegister>(`${this.javaServerUrl}/register`, userReg);
+        return this.http.post<UserRegister>(`${this.javaServerUrl}/user/register`, userReg);
       }
 }

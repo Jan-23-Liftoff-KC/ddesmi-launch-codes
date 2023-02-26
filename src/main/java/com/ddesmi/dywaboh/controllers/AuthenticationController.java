@@ -8,19 +8,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Optional;
 
-//NEED TO REFACTOR TO RETURN STATUS CODES INSTEAD OF STRINGS USED FROM MVC FORMAT
 
 @RestController
+@RequestMapping("/user")
 public class AuthenticationController {
 
     @Autowired
@@ -47,8 +44,7 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-
-    @PostMapping("/register")
+    @RequestMapping(value="/register", method= {RequestMethod.POST} )
     public ResponseEntity<User> processRegistrationForm(@ModelAttribute @Valid RegisterDTO registerDTO,
                                                         Errors errors, HttpServletRequest request) {
 

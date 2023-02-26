@@ -14,8 +14,8 @@ export class UserRegisterComponent implements OnInit {
   constructor(private userService: UserService) { }
   ngOnInit(): void {
   }
-  public onUserRegister(listingForm: NgForm): void {
-    this.userService.addUser(listingForm.value).subscribe(
+  public onUserRegister(userReg: NgForm): void {
+    this.userService.addUser(userReg.value).subscribe(
       (response: UserRegister) => {
         console.log(response);
       },
