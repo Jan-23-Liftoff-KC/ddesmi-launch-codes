@@ -1,5 +1,7 @@
 package com.ddesmi.dywaboh.controllers;
+import com.ddesmi.dywaboh.models.Properties;
 import com.ddesmi.dywaboh.models.User;
+import com.ddesmi.dywaboh.models.data.PropertiesRepository;
 import com.ddesmi.dywaboh.models.data.UserRepository;
 import com.ddesmi.dywaboh.models.dto.LoginDTO;
 import com.ddesmi.dywaboh.models.dto.RegisterDTO;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -22,6 +25,8 @@ public class AuthenticationController {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    PropertiesRepository propertiesRepository;
 
     private static final String userSessionKey = "user";
 
@@ -42,6 +47,13 @@ public class AuthenticationController {
 
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
+    }
+
+    // test for returning not null after register
+    @GetMapping("/register")
+    public List<Properties> allProperties(){
+        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
+        return foundProperties;
     }
 
     @RequestMapping(value="/register", method= {RequestMethod.POST} )

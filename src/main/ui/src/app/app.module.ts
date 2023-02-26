@@ -23,7 +23,10 @@ const routes: Routes = [
   { path: 'app', component: AppComponent},
     { path: 'home', component: HomeComponent },
     { path: 'listings', component: ListingDetailsComponent },
-  {path:"user/register", component: UserRegisterComponent}
+
+  {path:"user", children:[
+    {path:"register", component:UserRegisterComponent}
+  ]}
 ]
 @NgModule({
   declarations: [
