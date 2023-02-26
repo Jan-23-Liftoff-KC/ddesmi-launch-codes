@@ -1,67 +1,17 @@
-.header {
+.active {
+  background-color: #94949420;
+}
+#listing-content {
+    display:grid;
+    grid-template-areas: "header header" "sidebar main";
+    grid-template-columns: 30rem 1fr;
+    height:80vh;
+}
+#pageTitle {
+  grid-area: header;
   background-color: #f1f1f1;
   padding: 20px;
   text-align: center;
-}
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 15px;
-}
- /* Clear floats after the columns 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
-  div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 180px;
-  }
-  div.gallery:hover {
-    border: 1px solid #777;
-  }
- div.gallery img {
-    width: 100%;
-    height: auto;
-  }
- div.desc {
-    padding: 15px;
-    text-align: center;
- }
-/*---------------------------
----------------------------*/
-a ul{
-    /* border: 2px solid gray; */
-    padding:1rem;
-    color:black;
-    list-style-type: none;
-}
-ul {
-    border: 1px solid lightblue;
-}
-a:hover ul{
-    cursor: pointer;
-    background-color: #00800020;
-    text-decoration: none;
-}
-.active {
-    background-color:violet;
-    color:yellow;
-}
-ul {
-    margin:1rem;
-    padding:1rem;
-    font-size: 1rem;
-}
-
-#listing-content {
-    display:grid;
-    grid-template-areas: "sidebar main";
-    grid-template-columns: 20rem 1fr;
-    height:80vh;
 }
 #listing-detail {
     grid-area: main;
@@ -71,4 +21,38 @@ ul {
     grid-area: sidebar;
     overflow-y: scroll; 
 }
+.desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin:.25rem;
+  /* text-align: center; */
+  height: auto;
+  border-radius: 2vh;
+  border: 1px solid #ccc;
 
+}
+.desc:hover {
+  cursor: pointer;
+  background-color: #94949420;
+  border: 1px solid #777;
+  text-decoration: none;
+}
+img{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2vh 0px 0px 2vh;
+}
+ul {
+  padding:1rem;
+  list-style-type: none;
+  width: 65%;
+  flex-shrink: 0;
+  border-radius: 0px 2vh 2vh 0px;
+  border: 1px solid #ccc;
+}
+a {
+  color:black;
+  text-decoration: none;
+}

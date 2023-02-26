@@ -19,7 +19,7 @@ public class PriceHistory {
     @NotBlank
     private Date changeDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="properties_id")
     private Properties properties;
 

@@ -23,4 +23,13 @@ export class ListingService {
   public addListing(listing:Listing): Observable<Listing> {
     return this.http.post<Listing>(`${this.javaServerUrl}/properties/add`, listing);
   }
+
+  public updateListing(listing: Listing, id: number | undefined): Observable<Listing> {
+    return this.http.put<Listing>(`${this.javaServerUrl}/properties/update/${id}`, listing);
+  }
+
+  public deleteListing(id: Number | undefined): Observable<void> {
+    return this.http.delete<void>(`${this.javaServerUrl}/properties/delete/${id}`);
+  }
+
 }

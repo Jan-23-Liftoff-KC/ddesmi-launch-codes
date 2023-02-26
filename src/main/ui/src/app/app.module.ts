@@ -17,17 +17,18 @@ import { UserLoginComponent } from './user-login/user-login.component';
 
 
 const routes: Routes = [
-  {path:"properties", component: ListingDetailsComponent, children:[
+  {path:"listings", component: ListingDetailsComponent, children:[
     {path:':id', component: SingleListingComponent},
     {path:"edit/:id", component: ListingFormComponent}
-  ]},
+  ]}, 
   { path: 'app', component: AppComponent},
-    { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
 
   {path:"user", children:[
     {path:"register", component:UserRegisterComponent},
     {path:"login", component:UserLoginComponent}
   ]}
+
 ]
 @NgModule({
   declarations: [
