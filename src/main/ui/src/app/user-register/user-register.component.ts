@@ -29,6 +29,8 @@ export class UserRegisterComponent implements OnInit {
         alert(error.message);
       }
     )
+    this.router.navigate(['user/login'])
+
   };
 
 

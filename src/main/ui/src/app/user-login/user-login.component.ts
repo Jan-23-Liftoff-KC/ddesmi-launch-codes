@@ -28,6 +28,7 @@ export class UserLoginComponent implements OnInit {
         alert(error.message);
       }
     )
+    this.router.navigate(['listings'])
   };
 
 }
