@@ -5,6 +5,7 @@ import { Listing } from '../listing/listing';
 import { ListingService } from '../listing/listing.service';
 import { switchMap } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-single-listing',
   templateUrl: './single-listing.component.html',
@@ -13,7 +14,11 @@ import { switchMap } from 'rxjs/operators';
 export class SingleListingComponent implements OnInit {
   public listing!: Listing;
   listingService: ListingService;
-  
+  lat: number = 0;
+  lng: number = 0;
+  address: string = "";
+  formattedAddress: string = "";
+
   constructor(private activatedRoute: ActivatedRoute, private router: Router, listingService: ListingService) {
     this.activatedRoute = activatedRoute;
     this.router = router;
@@ -27,6 +32,8 @@ export class SingleListingComponent implements OnInit {
       this.listingService.getListing(id).subscribe(
         (response: Listing) => {
           this.listing = response;
+          this.lat = this.listing.latitude;
+          this.lng = this.listing.longitude;
         }
     )
   })
@@ -36,5 +43,5 @@ export class SingleListingComponent implements OnInit {
     this.router.navigate(['edit', this.listing.id],
       {relativeTo: this.activatedRoute.parent})
   }
-  
+
 }

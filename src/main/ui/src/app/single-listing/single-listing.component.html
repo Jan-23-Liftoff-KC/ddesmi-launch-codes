@@ -18,4 +18,7 @@
     <li>Garage: {{listing?.garage}}</li>
     <li>School Destrict: {{listing?.schoolArea}}</li>
 </ul>
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 <button id="edit" (click)="closeEditProperty()">Edit</button>
