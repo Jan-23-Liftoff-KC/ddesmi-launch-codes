@@ -14,6 +14,7 @@ import { ListingFormComponent } from './listing-form/listing-form.component';
 import { SingleListingComponent } from './single-listing/single-listing.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { CollectionPageComponent } from './collection-page/collection-page.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
 
   { path: 'app', component: AppComponent},
   { path: 'home', component: HomeComponent },
+  { path: 'collection', component: CollectionPageComponent},
 
   {path:"user", children:[
     {path:"register", component:UserRegisterComponent},
@@ -42,7 +44,8 @@ const routes: Routes = [
     ListingFormComponent,
     SingleListingComponent,
     UserRegisterComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    CollectionPageComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)
