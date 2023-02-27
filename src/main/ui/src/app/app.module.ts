@@ -15,6 +15,7 @@ import { SingleListingComponent } from './single-listing/single-listing.componen
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { CollectionPageComponent } from './collection-page/collection-page.component';
+import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,10 @@ const routes: Routes = [
 
   { path: 'app', component: AppComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'collection', component: CollectionPageComponent},
+
+  { path: 'collection', component: CollectionPageComponent, children:[
+    {path:":id", component: CollectionDetailComponent},
+  ]},
 
   {path:"user", children:[
     {path:"register", component:UserRegisterComponent},
@@ -45,7 +49,8 @@ const routes: Routes = [
     SingleListingComponent,
     UserRegisterComponent,
     UserLoginComponent,
-    CollectionPageComponent
+    CollectionPageComponent,
+    CollectionDetailComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)
