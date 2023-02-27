@@ -1,0 +1,35 @@
+<p>user-login works!</p>
+
+<p>user-register works!</p>
+
+
+<form  #userLoginForm="ngForm" (ngSubmit)="onUserLogin(userLoginForm)">
+    <p>Login</p>
+
+<label for="username">Username</label>
+<input 
+    name="username" 
+    required 
+    ngModel
+    #username="ngModel" 
+    id="username" 
+    type="text" 
+    class="form-control"
+    placeholder="username">
+
+
+<label for="password">Password</label>
+<input 
+    name="password" 
+    required 
+    ngModel
+    #password="ngModel" 
+    id="password" 
+    type="password" 
+    class="form-control"
+    placeholder="password">
+
+
+<input type="submit" value="Submit" [disabled]="userLoginForm.invalid">
+</form>
+<a href="user/register"> Create An Account</a>

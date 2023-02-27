@@ -1,0 +1,45 @@
+<p>user-register works!</p>
+
+
+<form  #userRegisterForm="ngForm" (ngSubmit)="onUserRegister(userRegisterForm)">
+    <p>Create Account</p>
+
+<label for="username">Username</label>
+<input 
+    name="username" 
+    required 
+    ngModel
+    #username="ngModel" 
+    id="username" 
+    type="text" 
+    class="form-control"
+    placeholder="username">
+
+
+<label for="password">Password</label>
+<input 
+    name="password" 
+    required 
+    ngModel
+    #password="ngModel" 
+    id="password" 
+    type="password" 
+    class="form-control"
+    placeholder="password">
+
+
+<label for="verifyPassword">Verify Password</label>
+<input 
+name="verifyPassword" 
+    required 
+    ngModel
+    #verifyPassword="ngModel" 
+    id="verifyPassword" 
+    type="password" 
+    class="form-control"
+    placeholder="verifyPassword">
+
+
+
+<input type="submit" value="Submit" [disabled]="userRegisterForm.invalid">
+</form>
