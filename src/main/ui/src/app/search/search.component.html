@@ -1,11 +1,11 @@
 <h2>Property Search</h2>
 <!--<form action="/action_page.php">-->
     <label for="streetaddress"> </label>
-    <input class="space1" type="text" id="streetaddress" name="streetaddress" value="street address">
+    <input class="space1" type="text" id="streetaddress" name="streetaddress" value="street address" [(ngModel)]="searchObject.streetaddress">
     <!--<label for="minbeds">Min Beds (between 1 and 3):</label>
     <input type="number" id="minbeds" name="minbeds" min="1" max="3"><br><br>-->
     <label for="minbeds" class="space1">Min Beds : </label>
-    <select id="minbeds" name="minbeds" class="space1">
+    <select id="minbeds" name="minbeds" class="space1" [(ngModel)]="searchObject.minbeds">
       
       <option value="1">1</option>
       <option value="2">2</option>
@@ -13,26 +13,26 @@
      </select>
 
      <label for="minbeds" class="space1">Max Beds : </label>
-     <select id="maxbeds" name="maxbeds" class="space1">
+     <select id="maxbeds" name="maxbeds" class="space1" [(ngModel)]="searchObject.maxbeds">
         <option value="1">4</option>
         <option value="2">5</option>
         <option value="3">6</option>
        </select>
        <label for="minprice" class="space1">Min Price : </label>
-       <select id="minprice" name="minprice" class="space1">
+       <select id="minprice" name="minprice" class="space1" [(ngModel)]="searchObject.minprice">
           <option value="100000">$100,000</option>
           <option value="200000">$200,000</option>
           <option value="300000">$300,000</option>
          </select>
          <label for="maxprice" class="space1">Max Price : </label>
-         <select id="maxprice" name="maxprice" class="space1">
+         <select id="maxprice" name="maxprice" class="space1" [(ngModel)]="searchObject.maxprice">
             <option value="400000">$400,000</option>
             <option value="500000">$500,000</option>
             <option value="600000">$600,000</option>
             <option value="700000">$700,000</option>
            </select>
     <label for="forsale" class="space1">For Sale : </label>
-    <select id="For Sale" name="forsale" class="space1">
+    <select id="For Sale" name="forsale" class="space1" [(ngModel)]="searchObject.forsale">
       <option value="forsale">For Sale</option>
       <option value="forrent">For Rent</option>
       <option value="sold">Sold</option>
