@@ -58,6 +58,9 @@ export class ListingFormComponent implements OnInit {
     this.listingService.updateListing(editListingForm.value, this.listing?.id).subscribe(
       (response: Listing) => {
         console.log(response);
+        if(response.address != undefined){
+          this.router.navigate(['listings'])
+        }
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

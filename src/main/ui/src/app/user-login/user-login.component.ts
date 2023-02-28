@@ -23,12 +23,15 @@ export class UserLoginComponent implements OnInit {
     this.userService.userLogin(user.value).subscribe(
       (response: User) => {
         console.log(response);
+        if(response.id != 0){
+          this.router.navigate(['listings'])
+        }
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
-      }
+      },
+      
     )
-    this.router.navigate(['listings'])
   };
 
 }
