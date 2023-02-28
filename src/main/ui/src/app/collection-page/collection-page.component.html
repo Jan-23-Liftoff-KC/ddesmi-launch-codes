@@ -3,19 +3,19 @@
     <div id="pageTitle" ><h1>Collections</h1></div>
 
     <div id="all-collections">
-        <!-- <a *ngFor="let collection of collections" [routerLink]="['/collection', collection.id]">
+        <a *ngFor="let collection of collections" [routerLink]="['/collection', collection.id]">
             <div class="desc" routerLinkActive="active">
-                <div class="image">
+                <!-- <div class="image">
                     <img *ngIf="collection.image" src="../assets/images/{{collection.image.imageFilePath}}.webp" alt="collection thumbnail"> 
-                </div>
+                </div> -->
                 <ul>
                     <li>{{collection.name}}</li>
-                    <li>{{collection.length}}</li><br>
-                    <li>{{collection.updated | date}}</li>
+                    <li>Properties in collection: {{collection.listings.length}}</li><br>
+                    <!-- <li>{{collection.updated | date}}</li> -->
                 </ul>
             </div>
-        </a> -->
-        <div class="desc" routerLinkActive="active">
+        </a>
+        <!-- <div class="desc" routerLinkActive="active">
             <ul>
                 <li>Collection for the Smiths</li>
                 <li>Collection items: 3</li><br>
@@ -28,7 +28,7 @@
                 <li>Collection items: 1</li><br>
                 <li>Last Updated: 1/1/2023</li>
             </ul>
-        </div>
+        </div> -->
         <button routerLink="collection/add">Add New Collection</button>
     </div>
     <div id="collection-detail">

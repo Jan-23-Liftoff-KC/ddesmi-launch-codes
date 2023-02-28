@@ -1,32 +1,19 @@
-<h2>Collection for the Smiths</h2>
-<textarea name="collectionNote" id="collectionNote" readonly></textarea>
+<h2>{{collection.name}}</h2>
+<textarea name="collectionNote" id="collectionNote" readonly>{{collection.note}}</textarea>
 <button routerLink="collection/:id/edit">Edit</button>
 <button routerLink="collection/:id">Save</button>
 <hr>
 
-<div class="collection-listing-card">
-    <img src="../assets/images/73fd5c6d7839f8518a4a998ce94aa2f0.webp" alt="property thumbnail">
+<div class="collection-listing-card" *ngFor="let listing of collection.listings">
+    <a *ngIf="listing.images[0].imageFilePath" href="../assets/images/{{listing.images[0].imageFilePath}}.webp" target="_blank">
+        <img *ngIf="listing.images[0].imageFilePath" src="../assets/images/{{listing.images[0].imageFilePath}}.webp" alt="property image"/>
+    </a>
     <ul>
-        <li>$230,000 - For Sale</li>
-        <li>123 Main St., Kansas City, MO 64109</li>
+        <li>{{listing.price | currency}} - {{listing.status}}</li>
+        <li>{{listing.address}}, {{listing.city}}, {{listing.state}} {{listing.zip}}</li>
     </ul>
     <button>x</button>
 </div>
-<div class="collection-listing-card">
-    <img src="../assets/images/73fd5c6d7839f8518a4a998ce94aa2f0.webp" alt="property thumbnail">
-    <ul>
-        <li>$230,000 - For Sale</li>
-        <li>123 Main St., Kansas City, MO 64109</li>
-    </ul>
-    <button>x</button>
-</div>
-<div class="collection-listing-card">
-    <img src="../assets/images/73fd5c6d7839f8518a4a998ce94aa2f0.webp" alt="property thumbnail">
-    <ul>
-        <li>$230,000 - For Sale</li>
-        <li>123 Main St., Kansas City, MO 64109</li>
-    </ul>
-    <button>x</button>
-</div>
+
 <button routerLink="collection/:id/listings">Add Listings</button>
 <button routerLink="collection/:id">Done</button>

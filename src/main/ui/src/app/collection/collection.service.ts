@@ -13,7 +13,11 @@ export class CollectionService {
   constructor(private http: HttpClient) { }
 
   public getCollections(): Observable<Collection[]> {
-    return this.http.get<Collection[]>(`${this.javaServerUrl}/collection/all`);
+    return this.http.get<Collection[]>(`${this.javaServerUrl}/collection`);
+  }
+
+  public getCollection(id: Number): Observable<Collection> {
+    return this.http.get<Collection>(`${this.javaServerUrl}/collection/${id}`);
   }
 
   public addCollection(collection:Collection): Observable<Collection> {

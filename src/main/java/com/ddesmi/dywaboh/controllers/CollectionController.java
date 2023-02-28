@@ -18,7 +18,7 @@ public class CollectionController {
     @Autowired
     CollectionRepository collectionRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Collection> allCollections(){
         List<Collection> foundCollections = (List<Collection>) collectionRepository.findAll();
         return foundCollections;

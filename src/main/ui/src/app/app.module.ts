@@ -41,10 +41,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ListingDetailsComponent,
     NavbarComponent,
     HomeComponent,
     FooterComponent, 
+    ListingDetailsComponent,
     ListingFormComponent,
     SingleListingComponent,
     UserRegisterComponent,
