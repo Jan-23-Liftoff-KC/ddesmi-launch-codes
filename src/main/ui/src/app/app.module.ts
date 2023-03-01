@@ -54,12 +54,12 @@ const routes: Routes = [
     ListingDetailsComponent,
     ListingFormComponent,
     SingleListingComponent,
-    SearchComponent
+    SearchComponent,
     UserRegisterComponent,
     UserLoginComponent,
     CollectionPageComponent,
     CollectionDetailComponent,
-    CollectionFormComponent
+    CollectionFormComponent,
     ListingLogoComponent
 
   ],
