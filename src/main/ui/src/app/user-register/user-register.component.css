@@ -1,0 +1,55 @@
+.alert {
+    background-color: #ff000020;
+    color:brown;
+    margin:.5rem;
+    padding:.25rem;
+}
+.form-control {
+    margin:1rem .5rem 0px .5rem;
+    display:inline-block;
+}
+
+form {
+    background-color:#BEE3DB;
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+}
+
+.form-control.ng-invalid.ng-touched {
+    border:solid 1px red;
+}
+
+input[type="submit"] {
+    display: inline-block;
+    background-color: #89B0AE;
+    color: #FAF9F9;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    border: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: #555B6E;
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+input[type="submit"]:hover{
+    background-color: #BEE3DB;
+    color: #89B0AE;
+    border-color: #FAF9F9;
+}
+#register-container{
+    background-color: #89B0AE;
+    height: 100vh;
+    padding: 20px;
+}
+#create-account{
+    font-size: 3rem;
+    font-weight: 600;
+    color: #555B6E;
+    margin: auto;
+    text-align: center;
+}

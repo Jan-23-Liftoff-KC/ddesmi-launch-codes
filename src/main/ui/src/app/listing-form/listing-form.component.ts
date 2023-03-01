@@ -3,8 +3,7 @@ import { AbstractControl, ControlValueAccessor, FormControl, NgForm } from '@ang
 import { ListingService } from '../listing/listing.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Listing } from '../listing/listing';
-import { SingleListingComponent } from '../single-listing/single-listing.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-listing-form',
@@ -20,11 +19,13 @@ export class ListingFormComponent implements OnInit {
 
   public listing: Listing | undefined ;
 
-  constructor(private listingService: ListingService, private activatedRoute: ActivatedRoute) { 
+  constructor(private listingService: ListingService, private activatedRoute: ActivatedRoute, private router: Router) { 
+    this.router = router;
     this.activatedRoute = activatedRoute
 
   }
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   
     this.activatedRoute.paramMap
     .subscribe(params => {
@@ -57,7 +58,9 @@ export class ListingFormComponent implements OnInit {
     this.listingService.updateListing(editListingForm.value, this.listing?.id).subscribe(
       (response: Listing) => {
         console.log(response);
-        // this.getListings();
+        if(response.address != undefined){
+          this.router.navigate(['listings'])
+        }
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -74,6 +77,8 @@ export class ListingFormComponent implements OnInit {
         alert(error.message);
       }
     )
+    this.router.navigate(['listings'])
+
   };
   
 }

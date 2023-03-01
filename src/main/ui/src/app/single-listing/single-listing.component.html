@@ -7,15 +7,20 @@
     </div>
 </div>
 
-<ul>
-    <li>Home ID: {{listing?.id}} | Listed: {{listing?.listingDate | date}} </li>
-    <li>{{listing?.price | currency}} - {{listing?.status}}</li>
-    <li>{{listing?.squareFootage}}sqft | {{listing?.bedrooms}} Bedrooms | {{listing?.bathrooms}} Bathrooms</li>
+<ul id="details">
+    <li><span id="current-price">${{listing?.price | number: '1.0-0'}}</span></li>
+    <li>{{listing?.status}} | Listed: {{listing?.listingDate | date}} </li>
+    <li>{{listing?.squareFootage | number: '1.0-0'}} sqft | {{listing?.bedrooms}} Bedrooms | {{listing?.bathrooms}} Bathrooms</li>
     <li>{{listing?.address}}</li>
     <li>{{listing?.city}}, {{listing?.state}} {{listing?.zip}}</li>
-    <li>Central AC: {{listing?.centralCooling}}</li>
+    <hr align="left">
+    <li >Central AC: {{listing?.centralCooling}}</li>
     <li>Central Heat: {{listing?.centralHeating}}</li>
     <li>Garage: {{listing?.garage}}</li>
-    <li>School Destrict: {{listing?.schoolArea}}</li>
+    <li>School District: {{listing?.schoolArea}}</li>
 </ul>
 <button id="edit" (click)="closeEditProperty()">Edit</button>
+<agm-map [zoom]="16" [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+

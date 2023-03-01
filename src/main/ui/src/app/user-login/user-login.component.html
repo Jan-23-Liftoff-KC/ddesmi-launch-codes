@@ -1,0 +1,42 @@
+<div id="login-container">
+    <form  #userLoginForm="ngForm" (ngSubmit)="onUserLogin(userLoginForm)">
+    <div id="login-account">LOGIN</div>
+    <br>
+<label for="username">Username</label>
+<input 
+    name="username" 
+    required 
+    ngModel
+    #username="ngModel" 
+    id="username" 
+    type="text" 
+    class="form-control"
+    placeholder="Username">
+
+    <br>
+
+<label for="password">Password</label>
+<input 
+    name="password" 
+    required 
+    ngModel
+    #password="ngModel" 
+    id="password" 
+    type="password" 
+    class="form-control"
+    placeholder="Password">
+
+    <br>
+
+    
+
+
+    <input type="submit" value="Submit" [disabled]="userLoginForm.invalid">
+
+    <br>
+
+    <a id="create-user" href="user/register"> Create A New Account</a>
+
+</form>
+
+</div>

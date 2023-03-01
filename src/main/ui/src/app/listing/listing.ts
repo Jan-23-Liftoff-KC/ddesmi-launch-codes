@@ -14,6 +14,8 @@ export interface Listing {
     listingDate: Date;
     status: string;
     schoolArea: string;
+    latitude: number;
+    longitude: number;
     images:Images[];
 }
 

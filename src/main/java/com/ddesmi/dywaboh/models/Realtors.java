@@ -1,7 +1,10 @@
 package com.ddesmi.dywaboh.models;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import java.util.List;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
@@ -21,13 +24,6 @@ public class Realtors {
     private String lastName;
 
     @NotBlank
-    private String username;
-
-    @NotBlank
-    @Size(min=8, max=50, message="Password must be at least 8 characters long")
-    private String password;
-
-    @NotBlank
     private String agency;
 
     @NotBlank
@@ -38,7 +34,6 @@ public class Realtors {
 
     private String profileImagePath;
 
-    //mapped  by field name in properties. properties will be many to one with join column defining field
     @OneToMany(mappedBy = "realtors")
     private List<Properties> properties = new ArrayList<>();
 
@@ -66,22 +61,6 @@ public class Realtors {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getAgency() {
@@ -126,9 +105,5 @@ public class Realtors {
 
     //CONSTRUCTORS
     public Realtors() {
-    }
-
-    public Realtors(ArrayList<Properties> properties) {
-        this.properties = properties;
     }
 }
