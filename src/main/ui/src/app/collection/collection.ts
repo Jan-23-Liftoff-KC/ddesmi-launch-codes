@@ -5,4 +5,5 @@ export interface Collection {
     name: string,
     note: string,
     listings: Listing[];
+    lastUpdate: Date;
 }

@@ -16,6 +16,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { CollectionPageComponent } from './collection-page/collection-page.component';
 import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
+import { CollectionFormComponent } from './collection-form/collection-form.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,8 @@ const routes: Routes = [
 
   { path: 'collection', component: CollectionPageComponent, children:[
     {path:":id", component: CollectionDetailComponent},
+    {path:"add", component: CollectionDetailComponent},
+    {path:"edit/:id", component: CollectionDetailComponent},
   ]},
 
   {path:"user", children:[
@@ -50,7 +53,8 @@ const routes: Routes = [
     UserRegisterComponent,
     UserLoginComponent,
     CollectionPageComponent,
-    CollectionDetailComponent
+    CollectionDetailComponent,
+    CollectionFormComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes)

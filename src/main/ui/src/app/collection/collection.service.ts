@@ -24,4 +24,7 @@ export class CollectionService {
     return this.http.post<Collection>(`${this.javaServerUrl}/collection/add`, collection);
   }
   
+  public updateCollection(collection: String): Observable<Collection> {
+    return this.http.post<Collection>(`${this.javaServerUrl}/collection/update`, collection);
+  }
 }

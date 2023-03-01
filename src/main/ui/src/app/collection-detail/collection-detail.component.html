@@ -1,7 +1,8 @@
-<h2>{{collection.name}}</h2>
-<textarea name="collectionNote" id="collectionNote" readonly>{{collection.note}}</textarea>
-<button routerLink="collection/:id/edit">Edit</button>
-<button routerLink="collection/:id">Save</button>
+<!-- <ng-container *ngIf="!collection.id; else addNewCollection"> -->
+<app-collection-form [collection]="collection"></app-collection-form>
+
+
+<!-- <button routerLink="collection/:id">Save</button> -->
 <hr>
 
 <div class="collection-listing-card" *ngFor="let listing of collection.listings">
@@ -15,5 +16,5 @@
     <button>x</button>
 </div>
 
-<button routerLink="collection/:id/listings">Add Listings</button>
-<button routerLink="collection/:id">Done</button>
+<!-- <button routerLink="collection/:id/listings">Add Listings</button>
+<button routerLink="collection/:id">Done</button> -->
