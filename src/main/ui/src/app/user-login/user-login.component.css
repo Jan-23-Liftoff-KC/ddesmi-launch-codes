@@ -10,10 +10,11 @@
 }
 
 form {
-    background-color: #BEE3DB;
+    background-color:#BEE3DB;
     padding: 1rem;
-    width: 50%;
-    margin: auto;
+    width: 70%;
+    margin: 3rem auto;
+    text-align: center;
 }
 
 .form-control.ng-invalid.ng-touched {
@@ -25,7 +26,7 @@ input[type="submit"] {
     display: inline-block;
     background-color: #89B0AE;
     color: #FAF9F9;
-    padding: 20px;
+    padding: 10px 20px;
     width: 200px;
     text-align: center;
     font-size: 25px;
@@ -34,7 +35,7 @@ input[type="submit"] {
     border-radius: 10px;
     border-color: #555B6E;
     cursor: pointer;
-    margin: 10px auto;
+    margin: 2rem auto;
 }
 
 input[type="submit"]:hover{
@@ -51,7 +52,7 @@ input[type="submit"]:hover{
     font-size: 3rem;
     font-weight: 600;
     color: #555B6E;
-    margin: auto;
+    padding: 2rem 0 1rem 0;
     text-align: center;
 }
 

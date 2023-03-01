@@ -10,7 +10,7 @@
                 </div>
                 <ul>
                     <!-- <li>Home ID: {{listing.id}}</li> -->
-                    <li>{{listing.price | currency}}</li>
+                    <li>${{listing.price | number}}</li>
                     <li>{{listing.bedrooms}} Bed || {{listing.bathrooms}} Bath</li><br>
                     <li>{{listing.address}}</li>
                     <li>{{listing.city}}, {{listing.state}} {{listing.zip}}</li>
