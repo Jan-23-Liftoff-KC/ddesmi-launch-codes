@@ -13,6 +13,12 @@
     padding: 14px 20px;
     text-decoration: none;
   }
+  .border a{
+    border:1px solid white;
+    border-radius: 5px;
+    padding:8px;
+    margin:.25rem;
+  }
   .navbar a.right {
     float: right;
   }
