@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./collection-detail.component.css']
 })
 export class CollectionDetailComponent implements OnInit {
-  public collection!: Collection;
+  public collection: Collection = {id:-1, name:"",note:"",listings:[], lastUpdate: new Date()};
   collectionService:CollectionService;
 
   constructor(private activatedRoute: ActivatedRoute, private router :Router,collectionService: CollectionService, ) {
@@ -29,6 +29,7 @@ export class CollectionDetailComponent implements OnInit {
     )
   })
   }
+
   public btnEditCollection():void{
     this.router.navigate(['edit', this.collection.id],
       {relativeTo: this.activatedRoute.parent})

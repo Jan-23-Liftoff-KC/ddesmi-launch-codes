@@ -22,25 +22,35 @@ export class CollectionFormComponent implements OnInit {
 
   ngOnInit(): void {
     // console.log(this.formDate);
+    this.getCollectionForForm()
+  }
+
+  public getCollectionForForm():void{
     this.activatedRoute.paramMap
     .subscribe(params => {
       let id = +params.get('id')!;
-      this.collectionService.getCollection(id).subscribe(
+      if(id < 1){
+        this.editCollection = {id:-1, name:"",note:"",listings:[], lastUpdate:this.date}
+      } else {
+        this.collectionService.getCollection(id).subscribe(
         (response: Collection) => {
           this.formCollection = response;
           this.editCollection = this.formCollection;
         }
     )
+  }
   })
   }
 
-  public onEditCollection(ngFormCollection: NgForm): void {
-    ngFormCollection.controls['listings'].setValue(this.editCollection.listings);
-    this.collectionService.updateCollection(ngFormCollection.value).subscribe(
+  public onAddCollection(ngFormCollection: NgForm): void {
+    ngFormCollection.controls['id'].setValue(null);
+    ngFormCollection.controls['listings'].setValue([]);
+    console.log(ngFormCollection.value)
+    this.collectionService.addCollection(ngFormCollection.value).subscribe(
       (response: Collection) => {
-        console.log("Response");
         console.log(response);
-        this.btnEditCollection();
+        this.btnEditCollection(response.id);
+        // this.getListings();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -48,13 +58,26 @@ export class CollectionFormComponent implements OnInit {
     )
   };
 
-  public btnEditCollection():void{
-    this.router.navigate([this.formCollection.id],
-      {relativeTo: this.activatedRoute.parent})
-  }
-
-  public handleEditSubmit(){
-        this.editCollection = this.formCollection;
+  public onEditCollection(ngFormCollection: NgForm): void {
+    if(this.editCollection.listings==undefined){
+      ngFormCollection.controls['listings'].setValue([]);
+    }else{
+      ngFormCollection.controls['listings'].setValue(this.editCollection.listings);
+    }
+    this.collectionService.updateCollection(ngFormCollection.value).subscribe(
+      (response: Collection) => {
+        console.log("Response");
+        console.log(response);
+        this.btnEditCollection(this.formCollection.id);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
   };
 
+  public btnEditCollection(route:any):void{
+    this.router.navigate([route],
+      {relativeTo: this.activatedRoute.parent})
+  }
 }

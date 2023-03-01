@@ -1,6 +1,9 @@
 .active {
     background-color: #94949420;
 }
+.subtext{
+    font-size: 1rem;
+}
 #collection-content {
     display:grid;
     grid-template-areas: "header header" "sidebar main";
