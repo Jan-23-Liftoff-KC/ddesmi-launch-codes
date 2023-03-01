@@ -1,6 +1,7 @@
 package com.ddesmi.dywaboh.models;
 
 import javax.persistence.*;
+import javax.persistence.ManyToMany;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -62,6 +63,10 @@ public class Properties {
     @NotBlank
     private String schoolArea;
 
+    private Float longitude;
+
+    private Float latitude;
+
     @OneToMany(cascade = REMOVE, mappedBy = "properties")
     private List<Images> images = new ArrayList<>();
 
@@ -70,6 +75,10 @@ public class Properties {
 
     @ManyToOne
     private Realtors realtors;
+
+    @ManyToMany( mappedBy = "listings")
+    private List<Collection> collections;
+
 
 //GETTERS AND SETTERS
 
@@ -209,6 +218,22 @@ public class Properties {
         this.prices = prices;
     }
 
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
+    }
+
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
 //    public Realtors getRealtors() {
 //        return realtors;
 //    }
@@ -223,8 +248,9 @@ public class Properties {
     public Properties() {
     }
 
-    public Properties(ArrayList<Images> images, ArrayList<PriceHistory> prices) {
+    public Properties(List<Images> images, List<PriceHistory> prices, List<Collection> collections) {
         this.images = images;
         this.prices = prices;
+        this.collections = collections;
     }
 }

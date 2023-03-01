@@ -1,0 +1,29 @@
+<form #editCollectionForm="ngForm" >
+    <input type="hidden" name="id" id="id" ngModel="{{editCollection?.id}}" >
+    <input type="text" 
+            name="name" 
+            ngModel = "{{editCollection?.name}}"
+            id="name" 
+            placeholder="Collection Title"
+            >
+    <label for="name">Collection Title</label>
+    <br>
+    <textarea   name="note" 
+                id="note"
+                ngModel = "{{editCollection?.note}}"
+                ></textarea>
+    <label for="note">Note</label>
+    <input type="hidden" name="listings" id="listings" ngModel="{{editCollection?.listings}}">
+    <input type="hidden" name="lastUpdate" id="lastUpdate" ngModel="{{formDate}}">
+    <br>
+    <!-- <button (click)="handleEditSubmit();">Update</button> -->
+    <button (click)="editCollection.id>0? onEditCollection(editCollectionForm): onAddCollection(editCollectionForm)" [disabled]="editCollectionForm.invalid">Save</button>
+    <button (click)="editCollection.id>0? btnEditCollection(editCollection.id) : btnEditCollection(null);">Cancel</button>
+</form>
+
+<!-- <ng-container *ngIf="!isFormVisible">
+    <h3>{{collection.name}}</h3>
+    <p>Notes:</p>
+    <p>{{collection.note}}</p>
+    <button (click)="isFormVisible = true; editCollection = collection;" >Edit</button>
+</ng-container> -->

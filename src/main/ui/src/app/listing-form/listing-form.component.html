@@ -384,7 +384,9 @@
     
         <!-- <label for="realtor_id">Realtor ID: </label>
         <input type="text" id="realtor_id" ngModel name="realtorID"> -->
-        <input type="submit" value="Submit"  [disabled]="editListingForm.invalid">
-        <button id="delete" (click)="onDeleteListing(listing?.id)">Delete</button>
+        <div id="buttons">
+            <input type="submit" value="Submit"  [disabled]="editListingForm.invalid">
+            <button id="delete" (click)="onDeleteListing(listing?.id)">Delete</button>
+        </div>
     </form>
 </ng-template>

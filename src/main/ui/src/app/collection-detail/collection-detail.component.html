@@ -1,0 +1,24 @@
+<!-- <ng-container *ngIf="!collection.id; else addNewCollection"> -->
+<!-- <app-collection-form [collection]="collection"></app-collection-form> -->
+<h3>{{collection.name}}</h3>
+    <p>Notes:</p>
+    <p>{{collection.note}}</p>
+    <button id="edit" (click)="btnEditCollection()">Edit</button>
+    <button (click)="onDeleteCollection(collection.id)">Delete Collection</button>
+
+<!-- <button routerLink="collection/:id">Save</button> -->
+<hr>
+
+<div class="collection-listing-card" *ngFor="let listing of collection.listings">
+    <a *ngIf="listing.images[0].imageFilePath" href="../assets/images/{{listing.images[0].imageFilePath}}.webp" target="_blank">
+        <img *ngIf="listing.images[0].imageFilePath" src="../assets/images/{{listing.images[0].imageFilePath}}.webp" alt="property image"/>
+    </a>
+    <ul>
+        <li>{{listing.price}} - {{listing.status}}</li>
+        <li>{{listing.address}}, {{listing.city}}, {{listing.state}} {{listing.zip}}</li>
+    </ul>
+    <button>x</button>
+</div>
+
+<!-- <button routerLink="collection/:id/listings">Add Listings</button>
+<button routerLink="collection/:id">Done</button> -->

@@ -3,7 +3,21 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color:#ddd;
-    color: white;
+    height: 125px;
+    background-color: #555B6E;
     text-align: center;
+    margin: 0px;
   }
+
+#services{
+  color:#89B0AE;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+#smart{
+  font-weight: 600;
+  color: #FAF9F9;
+  margin: 20px;
+}

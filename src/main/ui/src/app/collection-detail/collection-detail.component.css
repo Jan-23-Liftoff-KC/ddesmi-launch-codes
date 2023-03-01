@@ -1,0 +1,25 @@
+textarea{
+    width:100%;
+}
+
+.collection-listing-card{
+    display:flex;
+    /* justify-content: space-between; */
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    padding:.5rem;
+    margin:.5rem 0;
+}
+.collection-listing-card img{
+    width:6rem;
+    height:4rem;
+    object-fit: cover;
+    border-radius: inherit;
+}
+.collection-listing-card button {
+    height:max-content;
+    margin-left:auto;
+}
+.collection-listing-card ul{
+    list-style:none;
+}
