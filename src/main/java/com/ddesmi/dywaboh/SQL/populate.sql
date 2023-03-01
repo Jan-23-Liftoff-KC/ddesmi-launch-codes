@@ -5,15 +5,16 @@ VALUES
 (3, 'Hou Hou HOUSE', 'imrbt@notarobot.gov', 'R Daneel', 'Olivaw', 'mls1010001', '/images/robot.jpg'), 
 (12, 'Properties, Inc.', 'name@business.com', 'Person', 'Family', 'mls333123', '/images/picture.png');
 
-INSERT INTO dywaboh.properties (id, address, bathrooms, bedrooms, central_cooling, central_heating, city, garage, listing_date, price, school_area, square_footage, state, status, zip, realtors_id)
+INSERT INTO dywaboh.properties (id, address, bathrooms, bedrooms, central_cooling, central_heating, city, garage, listing_date, price, school_area, square_footage, state, status, zip, latitude, longitude, realtors_id)
 VALUES
-(1, '7711 N Troost Ave', 1.5, 2.0, true, true, 'Kansas City', true, '2021-07-15', 215000.00, 'Area 1', 1704, 'MO', 'For Sale', 64118, 2), 
-(2, '5807 Olive St', 3.0, 2.5, false, true, 'Kansas City', false, '2021-02-03', 145000.00, 'Catholic', 2500, 'MO', 'Sold', 64130, 3), 
-(3, '1304 Cooper Dr', 4.0, 3.0, true, true, 'Raymore', true, '2020-11-29', 449950.00, 'Treadmoor', 4500, 'MO', 'For Sale', 64083, 1),
-(4, '1021 N Parker Ter', 3.5, 2.5, false, false, 'Olathe', true, '2020-12-21', 312000.00, 'N/A', 2001, 'KS', 'For Sale', 66061, 1), 
-(5, '25053 W 112th St', 1, 1, true, true, 'Olathe', false, '2018-10-21', 720000.00, 'Trivial', 8999, 'KS', 'For Sale', 66061, 1), 
-(120, '1825 Rankin Dr', 2, 2, true, false, 'Independence', false, '2019-08-12', 235000.00, 'North School', 300, 'MO', 'For Sale', 64055, 3), 
-(1400, '712 SW 36th Street Ter', 10, 15, true, true, 'Blue Springs', true, '2020-08-10', 1500000.00, 'All of them', 20000, 'MO', 'For Sale', 64015, 3);
+(1, '7711 N Troost Ave', 1.5, 2.0, true, true, 'Kansas City', true, '2021-07-15', 215000.00, 'Area 1', 1704, 'MO', 'For Sale', 64118, 39.2348156, -94.5664927, 2),
+(2, '5807 Olive St', 3.0, 2.5, false, true, 'Kansas City', false, '2021-02-03', 145000.00, 'Catholic', 2500, 'MO', 'Sold', 64130, 39.0208755, -94.5575869, 3),
+(3, '1304 Cooper Dr', 4.0, 3.0, true, true, 'Raymore', true, '2020-11-29', 449950.00, 'Treadmoor', 4500, 'MO', 'For Sale', 64083, 38.8075628, -94.4777027, 1),
+(4, '1021 N Parker Ter', 3.5, 2.5, false, false, 'Olathe', true, '2020-12-21', 312000.00, 'N/A', 2001, 'KS', 'For Sale', 66061, 38.8971371, -94.8338828, 1),
+(5, '25053 W 112th St', 1, 1, true, true, 'Olathe', false, '2018-10-21', 720000.00, 'Trivial', 8999, 'KS', 'For Sale', 66061, 38.925749, -94.875698, 1),
+(120, '1825 Rankin Dr', 2, 2, true, false, 'Independence', false, '2019-08-12', 235000.00, 'North School', 300, 'MO', 'For Sale', 64055, 39.068458, -94.4113972, 3),
+(1400, '712 SW 36th Street Ter', 10, 15, true, true, 'Blue Springs', true, '2020-08-10', 1500000.00, 'All of them', 20000, 'MO', 'For Sale', 64015, 39.0121428, -94.3059162, 3);
+
 
 INSERT INTO dywaboh.price_history (id, change_date, price, properties_id)
 VALUES
@@ -34,3 +35,4 @@ VALUES
 (7, '/images/87489405.png', '2020-02-20', 120), 
 (11, '/images/780974.jpg', '2023-02-03', 1400), 
 (23, '/images/58984069584.png', '2022-06-23', 3);
+
