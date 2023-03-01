@@ -1,6 +1,7 @@
 package com.ddesmi.dywaboh.models;
 
 import javax.persistence.*;
+import javax.persistence.ManyToMany;
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -74,6 +75,10 @@ public class Properties {
 
     @ManyToOne
     private Realtors realtors;
+
+    @ManyToMany( mappedBy = "listings")
+    private List<Collection> collections;
+
 
 //GETTERS AND SETTERS
 
@@ -243,8 +248,9 @@ public class Properties {
     public Properties() {
     }
 
-    public Properties(ArrayList<Images> images, ArrayList<PriceHistory> prices) {
+    public Properties(List<Images> images, List<PriceHistory> prices, List<Collection> collections) {
         this.images = images;
         this.prices = prices;
+        this.collections = collections;
     }
 }

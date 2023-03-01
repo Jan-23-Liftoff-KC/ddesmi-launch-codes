@@ -1,0 +1,20 @@
+<div id="collection-content">
+
+    <div id="pageTitle" ><h1>Collections</h1></div>
+
+    <div id="all-collections">
+        <a *ngFor="let oneCollection of collections" [routerLink]="['/collection', oneCollection.id]">
+            <div class="desc" routerLinkActive="active">
+                <ul>
+                    <li>{{oneCollection.name}}</li>
+                    <li>Properties in collection: {{oneCollection.listings.length}}</li>
+                    <li class="subtext">Collection updated: {{oneCollection.lastUpdate | date}}</li>
+                </ul>
+            </div>
+        </a>
+        <!-- <button routerLink="/collection/add">Add New Collection</button> -->
+    </div>
+    <div id="collection-detail">
+        <router-outlet ></router-outlet>
+    </div>
+</div>
