@@ -15,12 +15,13 @@ import { SingleListingComponent } from './single-listing/single-listing.componen
 import { AgmCoreModule } from '@agm/core';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-
+import { ListingLogoComponent } from './listing-logo/listing-logo.component';
 
 
 const routes: Routes = [
   {path:"listings", component: ListingDetailsComponent, children:[
     {path:"add", component: ListingFormComponent},
+    {path:"", component: ListingLogoComponent},
     {path:':id', component: SingleListingComponent},
     {path:"edit/:id", component: ListingFormComponent}
   ]}, 
@@ -32,8 +33,8 @@ const routes: Routes = [
     {path:"register", component:UserRegisterComponent},
     {path:"login", component:UserLoginComponent}
   ]}
-
 ]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ const routes: Routes = [
     ListingFormComponent,
     SingleListingComponent,
     UserRegisterComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ListingLogoComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AgmCoreModule.forRoot({ apiKey: 'AIzaSyChmikksbY3oDGrrC64PlzVYwXU56ie-YY' })
