@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListingFormComponent } from './listing-form/listing-form.component';
 import { SingleListingComponent } from './single-listing/single-listing.component';
+import { SearchComponent } from './search/search.component';
 import { AgmCoreModule } from '@agm/core';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { UserLoginComponent } from './user-login/user-login.component';
@@ -19,6 +20,7 @@ import { CollectionDetailComponent } from './collection-detail/collection-detail
 import { CollectionFormComponent } from './collection-form/collection-form.component';
 import { ListingLogoComponent } from './listing-logo/listing-logo.component';
 
+
 const routes: Routes = [
   {path:"listings", component: ListingDetailsComponent, children:[
     {path:"add", component: ListingFormComponent},
@@ -26,7 +28,8 @@ const routes: Routes = [
     {path:':id', component: SingleListingComponent},
     {path:"edit/:id", component: ListingFormComponent}
   ]}, 
-  
+
+  { path: 'search', component:SearchComponent},
   { path: 'app', component: AppComponent},
   { path: 'home', component: HomeComponent },
 
@@ -51,6 +54,7 @@ const routes: Routes = [
     ListingDetailsComponent,
     ListingFormComponent,
     SingleListingComponent,
+    SearchComponent
     UserRegisterComponent,
     UserLoginComponent,
     CollectionPageComponent,
