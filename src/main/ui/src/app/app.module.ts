@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +16,7 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { CollectionPageComponent } from './collection-page/collection-page.component';
 import { CollectionDetailComponent } from './collection-detail/collection-detail.component';
 import { CollectionFormComponent } from './collection-form/collection-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
