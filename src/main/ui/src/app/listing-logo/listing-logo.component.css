@@ -1,0 +1,52 @@
+#logo {
+  width: 100%;
+  margin: 10% auto 10% auto;
+  text-align: center;
+  font-size: 4rem;
+  color: #555B6E;
+  font-weight: 700;
+  /* animation: fall 2s;
+  -webkit-animation: fall 2s;
+  z-index: 1000;
+  animation-fill-mode: forwards; */
+}
+#instructions {
+  border: none;
+  width: 100%;
+  margin: 10% auto;
+  text-align: center;
+  color: #FAF9F9;
+}
+#inst2{
+  margin: 10px;
+}
+#landing-container{
+  /* border: 10px; */
+  border-radius: 50%;
+  /* border-color: #555B6E; */
+  width: 90%;
+  margin: 10% auto;
+  background-color: #89B0AE;
+  padding: 10px;
+}
+/* @keyframes centerme  {
+  0% {
+      left:0;
+      top:0;
+  }   
+  100% {
+      left:51%;
+      top:51%;
+      margin-top:-151px;
+      margin-left:-151px;
+  } 
+} 
+ @-webkit-keyframes centerme  {
+  0% {
+      left:0;
+  }    
+  100% {
+      left:51%;
+      margin-left:-151px;
+  } 
+} */

@@ -16,8 +16,6 @@ export class SingleListingComponent implements OnInit {
   listingService: ListingService;
   lat: number = 0;
   lng: number = 0;
-  address: string = "";
-  formattedAddress: string = "";
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, listingService: ListingService) {
     this.activatedRoute = activatedRoute;
@@ -34,10 +32,11 @@ export class SingleListingComponent implements OnInit {
           this.listing = response;
           this.lat = this.listing.latitude;
           this.lng = this.listing.longitude;
+
         }
-    )
-  })
-};
+      )
+    })
+  }
 
   public closeEditProperty():void{
     this.router.navigate(['edit', this.listing.id],
