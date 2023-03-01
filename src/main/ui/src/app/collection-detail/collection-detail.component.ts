@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Collection } from '../collection/collection';
 import { CollectionService } from '../collection/collection.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-collection-detail',
@@ -29,6 +30,19 @@ export class CollectionDetailComponent implements OnInit {
     )
   })
   }
+
+  public onDeleteCollection(id: Number): void {
+    this.collectionService.deleteCollection(id).subscribe(
+      (response: void) => {
+        console.log(response);
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+this.router.navigate(['collection']);
+  };
 
   public btnEditCollection():void{
     this.router.navigate(['edit', this.collection.id],

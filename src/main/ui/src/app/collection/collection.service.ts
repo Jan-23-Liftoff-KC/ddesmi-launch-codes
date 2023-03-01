@@ -27,4 +27,8 @@ export class CollectionService {
   public updateCollection(collection: String): Observable<Collection> {
     return this.http.post<Collection>(`${this.javaServerUrl}/collection/update`, collection);
   }
+
+  public deleteCollection(id: Number): Observable<void> {
+    return this.http.delete<void>(`${this.javaServerUrl}/collection/delete/${id}`);
+  }
 }

@@ -18,6 +18,7 @@
     <br>
     <!-- <button (click)="handleEditSubmit();">Update</button> -->
     <button (click)="editCollection.id>0? onEditCollection(editCollectionForm): onAddCollection(editCollectionForm)" [disabled]="editCollectionForm.invalid">Save</button>
+    <button (click)="editCollection.id>0? btnEditCollection(editCollection.id) : btnEditCollection(null);">Cancel</button>
 </form>
 
 <!-- <ng-container *ngIf="!isFormVisible">

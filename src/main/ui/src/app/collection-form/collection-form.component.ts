@@ -77,6 +77,9 @@ export class CollectionFormComponent implements OnInit {
   };
 
   public btnEditCollection(route:any):void{
+    if(route==null){
+      this.router.navigate(['/collection']);
+    }
     this.router.navigate([route],
       {relativeTo: this.activatedRoute.parent})
   }
