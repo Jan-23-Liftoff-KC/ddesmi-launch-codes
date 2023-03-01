@@ -1,7 +1,4 @@
 <div id="collection-content">
-
-    <div id="pageTitle" ><h1>Collections</h1></div>
-
     <div id="all-collections">
         <a *ngFor="let oneCollection of collections" [routerLink]="['/collection', oneCollection.id]">
             <div class="desc" routerLinkActive="active">

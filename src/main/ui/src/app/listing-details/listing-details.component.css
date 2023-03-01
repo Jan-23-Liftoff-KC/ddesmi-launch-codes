@@ -18,7 +18,7 @@
 } */
 #listing-detail {
     grid-area: main;
-    overflow-y: scroll; 
+    overflow-y: auto; 
 }
 .desc {
   display: flex;

@@ -6,20 +6,52 @@ textarea{
     display:flex;
     /* justify-content: space-between; */
     border: solid 1px #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     padding:.5rem;
     margin:.5rem 0;
+    background-color: #89B0AE;
 }
 .collection-listing-card img{
     width:6rem;
     height:4rem;
     object-fit: cover;
     border-radius: inherit;
+    border: solid 2px #555B6E;
+    border-radius: 10px;
 }
 .collection-listing-card button {
     height:max-content;
     margin-left:auto;
+    text-align: center;
+    padding:9px;
+    border-width: 2px;
+    font-size: 1.4rem;
+    color:#555B6E;
+    background-color: #BEE3DB;
+
 }
 .collection-listing-card ul{
     list-style:none;
+}
+.collection-listing-card li{
+    line-height: 2rem;
+}
+button {
+    /* display: inline; */
+    background-color: #89B0AE;
+    color: #FAF9F9;
+    padding: 10px ;
+    /* width: auto; */
+    /* height:80px; */
+    text-align: center;
+    font-size: 1.4rem;
+    border: solid 3px #555B6E;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+button:hover{
+    background-color: #BEE3DB;
+    color: #89B0AE;
+    border-color: #FAF9F9;
 }

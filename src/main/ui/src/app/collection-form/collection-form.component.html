@@ -1,18 +1,20 @@
 <form #editCollectionForm="ngForm" >
     <input type="hidden" name="id" id="id" ngModel="{{editCollection?.id}}" >
+    <label for="name">Collection Title</label><br>
     <input type="text" 
             name="name" 
             ngModel = "{{editCollection?.name}}"
             id="name" 
             placeholder="Collection Title"
             >
-    <label for="name">Collection Title</label>
+    
     <br>
+    <label for="note">Note</label><br>
     <textarea   name="note" 
                 id="note"
                 ngModel = "{{editCollection?.note}}"
                 ></textarea>
-    <label for="note">Note</label>
+    
     <input type="hidden" name="listings" id="listings" ngModel="{{editCollection?.listings}}">
     <input type="hidden" name="lastUpdate" id="lastUpdate" ngModel="{{formDate}}">
     <br>

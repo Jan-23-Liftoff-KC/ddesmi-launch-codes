@@ -28,22 +28,21 @@ agm-map {
     color: black;
     list-style-type: none;
 }
-#edit {
-    display: block;
+button {
+    /* display: inline; */
     background-color: #89B0AE;
     color: #FAF9F9;
-    padding: 20px;
-    width: 200px;
+    padding: 10px 25px;
+    /* width: auto; */
+    /* height:80px; */
     text-align: center;
-    font-size: 25px;
-    border: solid;
-    border-width: 3px;
+    font-size: 1.4rem;
+    border: solid 3px #555B6E;
     border-radius: 10px;
-    border-color: #555B6E;
     cursor: pointer;
-    margin-left: auto;
+    margin: 10px;
 }
-#edit:hover{
+button:hover{
     background-color: #BEE3DB;
     color: #89B0AE;
     border-color: #FAF9F9;

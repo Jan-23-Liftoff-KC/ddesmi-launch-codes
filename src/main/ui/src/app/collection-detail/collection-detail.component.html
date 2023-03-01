@@ -14,7 +14,7 @@
         <img *ngIf="listing.images[0].imageFilePath" src="../assets/images/{{listing.images[0].imageFilePath}}.webp" alt="property image"/>
     </a>
     <ul>
-        <li>{{listing.price}} - {{listing.status}}</li>
+        <li><strong>${{listing.price | number}}</strong> - {{listing.status}}</li>
         <li>{{listing.address}}, {{listing.city}}, {{listing.state}} {{listing.zip}}</li>
     </ul>
     <button>x</button>

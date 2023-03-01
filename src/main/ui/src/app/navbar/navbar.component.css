@@ -13,12 +13,14 @@
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    /* transition: all 0.5s ease-out; */
   }
-  .border a{
-    border:1px solid white;
+
+  .border.a {
+    border:solid 1px white;
     border-radius: 5px;
     padding:8px;
-    margin:.25rem;
+    margin:0 .5rem 0 0;
   }
   .navbar a.right {
     float: right;
@@ -37,7 +39,8 @@
     float: right;
   }
   #name:hover{
-    background-color: #89B0AE;
+    background-color: #89B0AE50;
+
     color: #555B6E;
   }
     /* Column container 
