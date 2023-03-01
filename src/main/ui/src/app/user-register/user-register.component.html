@@ -1,8 +1,7 @@
-<p>user-register works!</p>
-
-
-<form  #userRegisterForm="ngForm" (ngSubmit)="onUserRegister(userRegisterForm)">
-    <p>Create Account</p>
+<div id="register-container">
+    
+    <form  #userRegisterForm="ngForm" (ngSubmit)="onUserRegister(userRegisterForm)">
+    <div id="create-account">CREATE AN ACCOUNT</div>
 
 <label for="username">Username</label>
 <input 
@@ -13,7 +12,9 @@
     id="username" 
     type="text" 
     class="form-control"
-    placeholder="username">
+    placeholder="Username">
+
+<br>
 
 
 <label for="password">Password</label>
@@ -25,8 +26,9 @@
     id="password" 
     type="password" 
     class="form-control"
-    placeholder="password">
+    placeholder="Password">
 
+<br>
 
 <label for="verifyPassword">Verify Password</label>
 <input 
@@ -37,9 +39,10 @@ name="verifyPassword"
     id="verifyPassword" 
     type="password" 
     class="form-control"
-    placeholder="verifyPassword">
+    placeholder="Verify Password">
 
-
+<br>
 
 <input type="submit" value="Submit" [disabled]="userRegisterForm.invalid">
 </form>
+</div>

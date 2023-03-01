@@ -10,11 +10,55 @@
 }
 
 form {
-    background-color:cornsilk;
+    background-color:#BEE3DB;
     padding: 1rem;
 }
 
 .form-control.ng-invalid.ng-touched {
     border:solid 1px red;
 }
+input[type="submit"] {
+    display: inline-block;
+    background-color: #89B0AE;
+    color: #FAF9F9;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    border: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: #555B6E;
+    cursor: pointer;
+    margin-right: auto;
+}
+input[type="submit"]:hover{
+    background-color: #BEE3DB;
+    color: #89B0AE;
+    border-color: #FAF9F9;
+}
 
+#delete {
+    display: inline-block;
+    background-color: #89B0AE;
+    color: #FAF9F9;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    border: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: #555B6E;
+    cursor: pointer;
+    margin-left: auto;
+}
+#delete:hover{
+    background-color: #BEE3DB;
+    color: #89B0AE;
+    border-color: #FAF9F9;
+}
+#buttons{
+    display: flex;
+    align-content: space-between;
+}

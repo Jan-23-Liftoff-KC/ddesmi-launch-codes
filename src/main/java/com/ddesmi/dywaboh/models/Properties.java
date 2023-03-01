@@ -63,6 +63,10 @@ public class Properties {
     @NotBlank
     private String schoolArea;
 
+    private Float longitude;
+
+    private Float latitude;
+
     @OneToMany(cascade = REMOVE, mappedBy = "properties")
     private List<Images> images = new ArrayList<>();
 
@@ -212,6 +216,22 @@ public class Properties {
 
     public void setPrices(List<PriceHistory> prices) {
         this.prices = prices;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
+        this.longitude = longitude;
+    }
+
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
     }
 
 //    public Realtors getRealtors() {

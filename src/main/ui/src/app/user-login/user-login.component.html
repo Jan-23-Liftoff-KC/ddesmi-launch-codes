@@ -1,10 +1,8 @@
-<p>user-login works!</p>
+<div id="login-container">
+    <form  #userLoginForm="ngForm" (ngSubmit)="onUserLogin(userLoginForm)">
+    <div id="login-account">LOGIN</div>
 
-<p>user-register works!</p>
-
-
-<form  #userLoginForm="ngForm" (ngSubmit)="onUserLogin(userLoginForm)">
-    <p>Login</p>
+    <br>
 
 <label for="username">Username</label>
 <input 
@@ -15,8 +13,9 @@
     id="username" 
     type="text" 
     class="form-control"
-    placeholder="username">
+    placeholder="Username">
 
+    <br>
 
 <label for="password">Password</label>
 <input 
@@ -27,9 +26,19 @@
     id="password" 
     type="password" 
     class="form-control"
-    placeholder="password">
+    placeholder="Password">
+
+    <br>
+
+    
 
 
-<input type="submit" value="Submit" [disabled]="userLoginForm.invalid">
+    <input type="submit" value="Submit" [disabled]="userLoginForm.invalid">
+
+    <br>
+
+    <a id="create-user" href="user/register"> Create A New Account</a>
+
 </form>
-<a href="user/register"> Create An Account</a>
+
+</div>
