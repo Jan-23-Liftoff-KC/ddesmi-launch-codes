@@ -14,7 +14,7 @@ export class SearchComponent implements OnInit {
 
   public searchObject: SearchModel;
   private listings: Listing[];
-  private results: Listing[];
+  public results: Listing[];
   private javaServerUrl = environment.devServerUrl;
 
   constructor( private listingService: ListingService) { 
@@ -45,17 +45,21 @@ export class SearchComponent implements OnInit {
   {
     this.results = [];
 
+    console.log(this.searchObject);
     for(var i=0; i<this.listings.length;i++)
     {
+
       var item = this.listings[i];
+      console.log(item);
       if(item.bedrooms >= this.searchObject.minbeds && item.bedrooms <= this.searchObject.maxbeds
         && item.address.includes(this.searchObject.streetaddress)
         && item.price >= this.searchObject.minprice && item.price <= this.searchObject.maxprice)
         {
           this.results.push(item);
+    console.log(item);
+
         }
     }
-    console.log(this.searchObject);
   }
 
 }
