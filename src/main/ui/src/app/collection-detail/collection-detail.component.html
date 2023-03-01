@@ -1,6 +1,9 @@
 <!-- <ng-container *ngIf="!collection.id; else addNewCollection"> -->
-<app-collection-form [collection]="collection"></app-collection-form>
-
+<!-- <app-collection-form [collection]="collection"></app-collection-form> -->
+<h3>{{collection.name}}</h3>
+    <p>Notes:</p>
+    <p>{{collection.note}}</p>
+    <button id="edit" (click)="btnEditCollection()">Edit</button>
 
 <!-- <button routerLink="collection/:id">Save</button> -->
 <hr>

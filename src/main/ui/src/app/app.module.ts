@@ -30,9 +30,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
   { path: 'collection', component: CollectionPageComponent, children:[
+    {path:"add", component: CollectionFormComponent},
     {path:":id", component: CollectionDetailComponent},
-    {path:"add", component: CollectionDetailComponent},
-    {path:"edit/:id", component: CollectionDetailComponent},
+    {path:"edit/:id", component: CollectionFormComponent},
   ]},
 
   {path:"user", children:[
