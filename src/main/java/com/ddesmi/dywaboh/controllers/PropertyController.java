@@ -2,11 +2,14 @@ package com.ddesmi.dywaboh.controllers;
 
 
 import com.ddesmi.dywaboh.models.Properties;
+import com.ddesmi.dywaboh.models.User;
 import com.ddesmi.dywaboh.models.data.ImagesRepository;
 import com.ddesmi.dywaboh.models.data.PropertiesRepository;
 import com.ddesmi.dywaboh.models.data.RealtorsRepository;
 import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,27 +28,27 @@ public class PropertyController {
     private ImagesRepository imagesRepository;
 
     @GetMapping("/all")
-    public List<Properties> allProperties(){
+    public ResponseEntity<List<Properties>> allProperties() {
         List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
-        return foundProperties;
+        return new ResponseEntity<>(foundProperties, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public Properties getProperty(@PathVariable("id") Integer id){
+    public ResponseEntity<Properties> getProperty(@PathVariable("id") Integer id) {
         Properties foundProperty = propertiesRepository.findById(id).get();
-        return foundProperty;
+        return new ResponseEntity<>(foundProperty, HttpStatus.OK);
     }
 
 
     @PostMapping("/add")
-    public Properties addProperty(@RequestBody Properties property){
+    public ResponseEntity<Properties> addProperty(@RequestBody Properties property) {
         Properties newProperty = propertiesRepository.save(property);
-        return newProperty;
+        return new ResponseEntity<>(newProperty, HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")
-    public Optional<Properties> updateProperty(@RequestBody Properties property, @PathVariable int id) {
-        return propertiesRepository.findById(id).map(listing ->{
+    public ResponseEntity<Optional<Properties>> updateProperty(@RequestBody Properties property, @PathVariable int id) {
+        Optional<Properties> updatedProperty = propertiesRepository.findById(id).map(listing -> {
             listing.setAddress(property.getAddress());
             listing.setCity(property.getCity());
             listing.setState(property.getState());
@@ -62,30 +65,13 @@ public class PropertyController {
             listing.setSchoolArea(property.getSchoolArea());
             return propertiesRepository.save(listing);
         });
-
+        return new ResponseEntity<>(updatedProperty,HttpStatus.OK);
     }
 
-    @RequestMapping(value="delete/{id}", method=RequestMethod.DELETE)
-    public void deleteProperty(@PathVariable int id){
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Properties> deleteProperty(@PathVariable int id) {
         propertiesRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
-// Added a realtor controller for testing
-//    @PostMapping("/addr")
-//    public Realtors addRealtors(@RequestBody Realtors realtors){
-//        Realtors newRealtors = realtorsRepository.save(realtors);
-//        return newRealtors;
-//    }
-//
-// returning multiple objects from repositories as an array of objects
-//    @GetMapping("/all")
-//    public List<Object> allProperties(){
-//        List<Object> objList = new ArrayList<>();
-//        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
-//        List<Realtors> foundRealtors = (List<Realtors>) realtorsRepository.findAll();
-//        objList.add(foundProperties);
-//        objList.add(foundRealtors);
-//        return objList;
-//    }
 }

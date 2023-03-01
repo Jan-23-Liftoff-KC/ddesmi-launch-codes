@@ -24,13 +24,14 @@ export class UserRegisterComponent implements OnInit {
     this.userService.addUser(userReg.value).subscribe(
       (response: UserRegister) => {
         console.log(response);
+        if(response.username != undefined){
+          this.router.navigate(['user/login'])
+        }
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     )
-    this.router.navigate(['user/login'])
-
   };
 
 

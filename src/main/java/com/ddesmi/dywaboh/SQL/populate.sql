@@ -1,9 +1,9 @@
-INSERT INTO dywaboh.realtors (id, agency, email, first_name, last_name, mls_number, password, profile_image_path, username)
+INSERT INTO dywaboh.realtors (id, agency, email, first_name, last_name, mls_number, profile_image_path)
 VALUES
-(1, 'Marx Agency', 'jenny.bilson@gmail.com', 'Jenny', 'Bilson', 'mls99934', 'pass12345', '/images/0000001.png', 'jBilson'), 
-(2, 'Buy a House, Man!', 'dave.epperson@bahm.ninja', 'Dave', 'Epperson', 'mls084698', 'pass99999', '/images/0540622.jpg', 'EppCoolGuy'), 
-(3, 'Hou Hou HOUSE', 'imrbt@notarobot.gov', 'R Daneel', 'Olivaw', 'mls1010001', 'passRobotNo', '/images/robot.jpg', 'Asimov'), 
-(12, 'Properties, Inc.', 'name@business.com', 'Person', 'Family', 'mls333123', 'passPass', '/images/picture.png', 'personF');
+(1, 'Marx Agency', 'jenny.bilson@gmail.com', 'Jenny', 'Bilson', 'mls99934', '/images/0000001.png'), 
+(2, 'Buy a House, Man!', 'dave.epperson@bahm.ninja', 'Dave', 'Epperson', 'mls084698', '/images/0540622.jpg'), 
+(3, 'Hou Hou HOUSE', 'imrbt@notarobot.gov', 'R Daneel', 'Olivaw', 'mls1010001', '/images/robot.jpg'), 
+(12, 'Properties, Inc.', 'name@business.com', 'Person', 'Family', 'mls333123', '/images/picture.png');
 
 INSERT INTO dywaboh.properties (id, address, bathrooms, bedrooms, central_cooling, central_heating, city, garage, listing_date, price, school_area, square_footage, state, status, zip, realtors_id)
 VALUES

@@ -49,12 +49,6 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-    // test for returning not null after register
-//    @GetMapping("/register")
-//    public List<Properties> allProperties(){
-//        List<Properties> foundProperties = (List<Properties>) propertiesRepository.findAll();
-//        return foundProperties;
-//    }
 
     @RequestMapping(value="/register", method= {RequestMethod.POST} )
     public ResponseEntity<User> processRegistrationForm(@RequestBody RegisterDTO registerDTO,
@@ -112,16 +106,16 @@ public class AuthenticationController {
         return new ResponseEntity<>(theUser,HttpStatus.OK);
     }
 
-    @RequestMapping(value="/user/{id}", method= {RequestMethod.GET} )
-    public User getUser(@PathVariable int id){
+    @RequestMapping(value="/{id}", method= {RequestMethod.GET} )
+    public ResponseEntity<User> getUser(@PathVariable int id){
         User foundUser = userRepository.findById(id).get();
-        return foundUser;
+        return new ResponseEntity<>(foundUser, HttpStatus.OK);
     }
 
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
+    public ResponseEntity<?> logout(HttpServletRequest request){
         request.getSession().invalidate();
-        return "redirect:/login";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
