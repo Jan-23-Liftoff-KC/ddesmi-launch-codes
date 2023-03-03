@@ -64,7 +64,7 @@ const routes: Routes = [
 
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AgmCoreModule.forRoot({ apiKey: 'AIzaSyChmikksbY3oDGrrC64PlzVYwXU56ie-YY' })
+    BrowserModule, HttpClientModule, FormsModule, RouterModule.forRoot(routes), AgmCoreModule.forRoot({ apiKey: '' })
   ],
   providers: [],
   bootstrap: [AppComponent]
